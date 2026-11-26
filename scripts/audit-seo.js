@@ -55,11 +55,11 @@ htmlFiles.forEach(file => {
   }
 
   // 2. 检查 Description
-  const descMatch = content.match(/<meta\s+name=["']description["']\s+content=["']([^"']*)["']/i);
-  if (!descMatch || !descMatch[1].trim()) {
+  const descMatch = content.match(/<meta\s+name=["']description["']\s+content=(["'])(.*?)\1/is);
+  if (!descMatch || !descMatch[2].trim()) {
     errors.push(`[${relFile}] 缺失 <meta name="description"> 或内容为空`);
   } else {
-    const desc = descMatch[1].trim();
+    const desc = descMatch[2].trim();
     if (desc.length < 20) {
       errors.push(`[${relFile}] Meta Description 过短 (${desc.length}字符): "${desc}"`);
     }
