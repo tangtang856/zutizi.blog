@@ -1,0 +1,29 @@
+---
+interface BreadcrumbItem {
+  name: string;
+  href?: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav aria-label="面包屑导航" class="flex items-center space-x-2 text-xs text-slate-500 py-3">
+  <a href="/" class="hover:text-blue-600 transition">首页</a>
+  {items.map((item, index) => {
+    const isLast = index === items.length - 1;
+    return (
+      <span class="flex items-center space-x-2">
+        <span class="text-slate-300">/</span>
+        {isLast || !item.href ? (
+          <span class="text-slate-800 font-medium truncate max-w-[200px] sm:max-w-md">{item.name}</span>
+        ) : (
+          <a href={item.href} class="hover:text-blue-600 transition">{item.name}</a>
+        )}
+      </span>
+    );
+  })}
+</nav>

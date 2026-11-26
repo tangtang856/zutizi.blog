@@ -1,0 +1,50 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  canonicalPath?: string;
+  schemaJson?: Record<string, any>;
+  ogType?: string;
+}
+
+const {
+  title,
+  description,
+  keywords = "机场推荐, 机场节点, 性价比机场, 梯子推荐, vpn, vpn机场, vpn节点, vpn推荐, 科学上网",
+  canonicalPath = Astro.url.pathname,
+  schemaJson,
+  ogType = "website"
+} = Astro.props;
+
+const BASE_DOMAIN = "https://zutizi.blog";
+const cleanPath = canonicalPath.replace(/^\//, "");
+const canonicalUrl = `${BASE_DOMAIN}/${cleanPath}`;
+---
+
+<!-- Global Metadata -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<link rel="canonical" href={canonicalUrl} />
+<meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+
+<!-- OpenGraph / Facebook -->
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:type" content={ogType} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:site_name" content="竹梯子博客 - zutizi.blog" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+
+<!-- Schema.org Structured Data -->
+{schemaJson && (
+  <script type="application/ld+json" set:html={JSON.stringify(schemaJson, null, 2)} />
+)}

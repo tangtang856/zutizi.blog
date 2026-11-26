@@ -21,23 +21,31 @@ const CONFIG = {
 };
 
 // 2. 确保本地存在验证 Key 文件
-const keyFilePath = path.join(ROOT_DIR, `${CONFIG.apiKey}.txt`);
+const keyFilePath = path.join(ROOT_DIR, "public", `${CONFIG.apiKey}.txt`);
 if (!fs.existsSync(keyFilePath)) {
+  fs.mkdirSync(path.join(ROOT_DIR, "public"), { recursive: true });
   fs.writeFileSync(keyFilePath, CONFIG.apiKey, "utf-8");
-  console.log(`🔑 自动创建 IndexNow 本地验证密钥文件: ${CONFIG.apiKey}.txt`);
+  console.log(`🔑 自动创建 IndexNow 本地验证密钥文件: public/${CONFIG.apiKey}.txt`);
 }
 
-// 3. 从 sitemap.xml 提取全站 URL 列表
+// 3. 从 sitemap 提取全站 URL 列表
 function getSitemapUrls() {
-  const sitemapPath = path.join(ROOT_DIR, "sitemap.xml");
+  let sitemapPath = path.join(ROOT_DIR, "dist", "sitemap-0.xml");
   if (!fs.existsSync(sitemapPath)) {
-    console.error("❌ 未找到 sitemap.xml，请先运行 node scripts/generate-sitemap.js");
+    sitemapPath = path.join(ROOT_DIR, "sitemap.xml");
+  }
+  if (!fs.existsSync(sitemapPath)) {
+    console.error("❌ 未找到 sitemap 文件，请先运行 npm run build 生成静态产物");
     process.exit(1);
   }
   const content = fs.readFileSync(sitemapPath, "utf-8");
   const urls = [];
-  const matches = content.matchAll(/<loc>(https:\/\/zutizi\.blog\/[^<]*)<\/loc>/g);
+  const matches = content.matchAll(/<loc>(https:\/\/zutizi\.blog[^<]*)<\/loc>/g);
   for (const m of matches) {
+    urls.push(m[1].trim());
+  }
+  return [...new Set(urls)];
+}
     urls.push(m[1]);
   }
   return urls;

@@ -1,0 +1,32 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+
+const title = "免责声明 - 技术探讨与合规合法使用提醒 - 竹梯子博客";
+const description = "竹梯子博客免责声明。明确本站内容仅用于计算机网络技术探讨、学术交流与科研加速，提醒读者遵守当地法律法规。";
+const keywords = "免责声明, 合规使用提醒, 网络技术探讨, 法律责任声明";
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs items={[{ name: "免责声明" }]} />
+    <div class="max-w-reading mx-auto mt-4 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm leading-relaxed text-sm text-slate-700">
+      <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 mb-6 border-b border-slate-100 pb-4">免责声明 (Disclaimer)</h1>
+      <p class="mb-4">
+        请在浏览或使用 <strong>竹梯子博客 (zutizi.blog)</strong> 所提供的一切内容前，仔细阅读本免责声明：
+      </p>
+      <h2 class="text-xl font-bold text-slate-900 mt-6 mb-3 border-l-4 border-blue-600 pl-3">一、技术交流宗旨</h2>
+      <p class="mb-4">
+        本站所有文章、评测与教程均出于计算机网络通信协议分析、跨境网络性能调优与学术科研加速之目的编制，不鼓励、不支持亦不参与任何违反国家及地区现行法律法规的行为。
+      </p>
+      <h2 class="text-xl font-bold text-slate-900 mt-6 mb-3 border-l-4 border-blue-600 pl-3">二、第三方服务风险自担</h2>
+      <p class="mb-4">
+        本站所提及的所有机场服务商均为独立第三方商业实体。本站不对其服务稳定性、长期运营能力、退款政策或安全漏洞承担任何连带责任。用户应当充分认知网络服务风险，坚持月付。
+      </p>
+      <h2 class="text-xl font-bold text-slate-900 mt-6 mb-3 border-l-4 border-blue-600 pl-3">三、版权归属</h2>
+      <p>
+        本站原创文章与实测数据图表版权归 <code>zutizi.blog</code> 所有，未经许可禁止任何商业恶意镜像与爬取。
+      </p>
+    </div>
+  </div>
+</BaseLayout>

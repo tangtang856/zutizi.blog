@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import { AIRPORTS } from '../../data/airports';
+
+const title = "流媒体4K解锁机场推荐 - Netflix/Disney+/YouTube秒开 - 竹梯子博客";
+const description = "流媒体4K解锁机场推荐专题。精选香港、日本、美国、新加坡原生住宅IP落地节点，完美解锁 Netflix 全区、Disney+、HBO Max 及 YouTube 4K。";
+const keywords = "Netflix解锁机场, 流媒体梯子推荐, Disney+加速, YouTube 4K秒开, 原生住宅节点";
+
+const list = AIRPORTS.filter(a => a.streamingSupport.some(s => s.includes("Netflix") || s.includes("YouTube")));
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs
+      items={[
+        { name: "机场推荐", href: "/recommend/" },
+        { name: "流媒体4K解锁" }
+      ]}
+    />
+
+    <header class="mb-8">
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+        流媒体 4K 超清解锁专用机场推荐
+      </h1>
+      <p class="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
+        针对海外流媒体版权锁区，提供真实原生住宅 IP 分流，YouTube 4K 测速码率达 150,000 Kbps 以上，秒开无拖沓。
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {list.map(airport => (
+        <AirportCard airport={airport} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

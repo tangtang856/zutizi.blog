@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import { AIRPORTS } from '../../data/airports';
+
+const title = "机场推荐专题中心 - 按预算、专线、AI与流媒体定制推荐 - 竹梯子博客";
+const description = "中文机场节点推荐中心。系统归类便宜低价、高端专线、新手入门、稳定专线、ChatGPT/AI工具及Netflix流媒体等6大核心使用场景推荐。";
+const keywords = "机场推荐, 梯子推荐, vpn推荐, 机场节点, 性价比机场, 科学上网选型";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs items={[{ name: "机场推荐" }]} />
+
+    <header class="mb-8">
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+        科学上网机场推荐专题中心
+      </h1>
+      <p class="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
+        根据您的实际使用场景、预算区间与终端设备，快速匹配最契合的高品质机场节点服务商。
+      </p>
+    </header>
+
+    <!-- 6 Topic Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 mb-10">
+      <a href="/recommend/budget/" class="p-4 bg-white border border-slate-200 hover:border-blue-500 rounded-xl text-center transition group shadow-sm">
+        <div class="text-2xl mb-1 group-hover:scale-110 transition">💰</div>
+        <div class="font-bold text-slate-900 text-xs">低预算实惠</div>
+      </a>
+      <a href="/recommend/premium/" class="p-4 bg-white border border-slate-200 hover:border-blue-500 rounded-xl text-center transition group shadow-sm">
+        <div class="text-2xl mb-1 group-hover:scale-110 transition">⚡</div>
+        <div class="font-bold text-slate-900 text-xs">高端物理专线</div>
+      </a>
+      <a href="/recommend/beginner/" class="p-4 bg-white border border-slate-200 hover:border-blue-500 rounded-xl text-center transition group shadow-sm">
+        <div class="text-2xl mb-1 group-hover:scale-110 transition">🌱</div>
+        <div class="font-bold text-slate-900 text-xs">新手入门首选</div>
+      </a>
+      <a href="/recommend/stable/" class="p-4 bg-white border border-slate-200 hover:border-blue-500 rounded-xl text-center transition group shadow-sm">
+        <div class="text-2xl mb-1 group-hover:scale-110 transition">🛡️</div>
+        <div class="font-bold text-slate-900 text-xs">稳定抗抖动</div>
+      </a>
+      <a href="/recommend/ai/" class="p-4 bg-white border border-slate-200 hover:border-blue-500 rounded-xl text-center transition group shadow-sm">
+        <div class="text-2xl mb-1 group-hover:scale-110 transition">🤖</div>
+        <div class="font-bold text-slate-900 text-xs">AI/ChatGPT</div>
+      </a>
+      <a href="/recommend/streaming/" class="p-4 bg-white border border-slate-200 hover:border-blue-500 rounded-xl text-center transition group shadow-sm">
+        <div class="text-2xl mb-1 group-hover:scale-110 transition">🎬</div>
+        <div class="font-bold text-slate-900 text-xs">4K流媒体解锁</div>
+      </a>
+    </div>
+
+    <h2 class="text-2xl font-bold text-slate-900 mb-6">编辑部精选实测机场全收录 (14家核心品牌)</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {AIRPORTS.map(airport => (
+        <AirportCard airport={airport} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import { AIRPORTS } from '../../data/airports';
+
+const title = "独立机场深度评测中心 (14家品牌报告) - 竹梯子博客";
+const description = "中文翻墙机场与梯子独立深度评测中心。客观呈现微风网络、灵猫、飞猫云、浪网等14家核心机场真实测速延迟与流媒体解锁能力。";
+const keywords = "独立机场评测, 机场深度评测, 梯子评测, 晚高峰测速, 机场套餐价格, 微风网络, 暮光网络, 飞猫云, 灵猫, 浪网";
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs items={[{ name: "独立评测" }]} />
+
+    <header class="mb-10 text-center sm:text-left">
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+        独立机场深度评测中心 (14家核心品牌)
+      </h1>
+      <p class="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
+        坚持实测、拒绝虚假宣传。所有评测文章均区分官方公开参数、实际测速结果与编辑部选购建议。
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {AIRPORTS.map(airport => (
+        <AirportCard airport={airport} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

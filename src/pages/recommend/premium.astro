@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import { AIRPORTS } from '../../data/airports';
+
+const title = "高端IPLC物理专线机场推荐 - 晚高峰不卡顿与千兆直连 - 竹梯子博客";
+const description = "高端IPLC物理专线机场推荐。采用内网物理光纤直连，不走公网国际网关与GFW审查，晚高峰延迟低且波动极小，支持企业与极客需求。";
+const keywords = "IPLC专线推荐, 高端机场, IEPL专线, 晚高峰不限速梯子, 跨境企业网络";
+
+const list = AIRPORTS.filter(a =>
+  a.description.includes("IPLC") ||
+  a.description.includes("IEPL") ||
+  a.advantages.some(adv => adv.includes("IPLC") || adv.includes("专线"))
+);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs
+      items={[
+        { name: "机场推荐", href: "/recommend/" },
+        { name: "高端IPLC专线" }
+      ]}
+    />
+
+    <header class="mb-8">
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+        高端 IPLC/IEPL 物理专线机场推荐
+      </h1>
+      <p class="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
+        采用陆地或海底光缆内网直通，彻底避开公网高峰期 QoS 限速，千兆跑满无抖动。
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {list.map(airport => (
+        <AirportCard airport={airport} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

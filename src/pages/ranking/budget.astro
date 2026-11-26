@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import { AIRPORTS } from '../../data/airports';
+
+const title = "低预算便宜机场排行榜 - ¥10元内学生轻量首选 - 竹梯子博客";
+const description = "低预算便宜机场排行榜。专为学生党、轻量浏览用户挑选¥10元以内起步门槛低的优质稳定梯子服务商。";
+const keywords = "便宜机场, 低预算翻墙, 学生党梯子推荐, 10元内机场, 平价翻墙推荐";
+
+// 按起步价格升序排序
+const sortedAirports = [...AIRPORTS].sort((a, b) => a.startingPrice - b.startingPrice);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs
+      items={[
+        { name: "排行榜", href: "/ranking/overall/" },
+        { name: "低预算排行榜" }
+      ]}
+    />
+
+    <header class="mb-8">
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+        低预算便宜机场排行榜 (按入门月付门槛排序)
+      </h1>
+      <p class="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
+        适合轻量网页查阅、社交沟通与低频使用的用户，起步月付门槛极低，支持随时按需更换。
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedAirports.map(airport => (
+        <AirportCard airport={airport} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

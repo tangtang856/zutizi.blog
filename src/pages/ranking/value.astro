@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import { AIRPORTS } from '../../data/airports';
+
+const title = "性价比机场排行榜 - 每GB实际使用成本折算排名 - 竹梯子博客";
+const description = "性价比机场排行榜。基于官方标称套餐价格与实际可用流量折算每GB单价，杜绝倍率套路，精准推荐超高性价比中文机场。";
+const keywords = "性价比机场, 便宜大流量机场, 每GB单价测算, 翻墙机场性价比排行";
+
+// 按每GB单价升序排序
+const sortedAirports = [...AIRPORTS].sort((a, b) => a.plans[0].pricePerGb - b.plans[0].pricePerGb);
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs
+      items={[
+        { name: "排行榜", href: "/ranking/overall/" },
+        { name: "性价比排行榜" }
+      ]}
+    />
+
+    <header class="mb-8">
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+        性价比机场排行榜 (按每GB成本排序)
+      </h1>
+      <p class="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
+        自动计算：<code>每 GB 单价 = 标称套餐价格 / 实际可用流量</code>。无倍率套路，按真实成本由低到高严格排序。
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {sortedAirports.map(airport => (
+        <AirportCard airport={airport} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>

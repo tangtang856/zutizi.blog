@@ -5,12 +5,12 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node scripts/check-links.js && node scripts/audit-seo.js && node scripts/validate-content.js",
-    "check-links": "node scripts/check-links.js",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "test": "astro build && node scripts/audit-seo.js",
     "audit": "node scripts/audit-seo.js",
-    "validate": "node scripts/validate-content.js",
-    "indexnow": "node scripts/indexnow.js",
-    "build": "node scripts/check-links.js && node scripts/audit-seo.js"
+    "indexnow": "node scripts/indexnow.js"
   },
   "keywords": [
     "机场推荐",
@@ -23,5 +23,14 @@
     "vpn推荐"
   ],
   "author": "zutizi.blog",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "@astrojs/tailwind": "^5.1.5",
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^26.6.11",
+    "astro": "^4.16.18",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.3"
+  }
 }

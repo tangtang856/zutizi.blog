@@ -13,12 +13,13 @@ const ROOT_DIR = path.resolve(__dirname, "..");
 const BASE_DOMAIN = "https://zutizi.blog";
 
 function getHtmlFiles(dir, fileList = []) {
+  if (!fs.existsSync(dir)) return fileList;
   const items = fs.readdirSync(dir);
   for (const item of items) {
     const fullPath = path.join(dir, item);
     const stat = fs.statSync(fullPath);
     if (stat.isDirectory()) {
-      if (![".git", "node_modules", "scripts", "docs", ".gemini"].includes(item)) {
+      if (![".git", "node_modules", "scripts", "docs", ".gemini", "src", "public"].includes(item)) {
         getHtmlFiles(fullPath, fileList);
       }
     } else if (item.endsWith(".html")) {
@@ -28,8 +29,9 @@ function getHtmlFiles(dir, fileList = []) {
   return fileList;
 }
 
-const htmlFiles = getHtmlFiles(ROOT_DIR);
-console.log(`🔎 开始执行 SEO 技术参数审计，共检视 ${htmlFiles.length} 个页面...`);
+const targetDir = fs.existsSync(path.join(ROOT_DIR, "dist")) ? path.join(ROOT_DIR, "dist") : ROOT_DIR;
+const htmlFiles = getHtmlFiles(targetDir);
+console.log(`🔎 开始执行 Astro 产物 (${path.basename(targetDir)}) SEO 技术参数审计，共检视 ${htmlFiles.length} 个页面...`);
 
 const titlesMap = new Map();
 let errors = [];

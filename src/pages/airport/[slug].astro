@@ -1,0 +1,138 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { AIRPORTS, type Airport } from '../../data/airports';
+
+export function getStaticPaths() {
+  return AIRPORTS.map(airport => ({
+    params: { slug: airport.slug },
+    props: { airport }
+  }));
+}
+
+interface Props {
+  airport: Airport;
+}
+
+const { airport } = Astro.props;
+
+const title = `${airport.name}怎么样？官方套餐价格、流量配额、节点协议与参数档案 - 竹梯子博客`;
+const description = `${airport.name}怎么样？本页系统收录${airport.name}官方最新套餐价格表（¥${airport.startingPrice.toFixed(Number.isInteger(airport.startingPrice)?0:1)}起/月）、月度流量配额（${airport.plans[0].trafficGb}GB起）、节点覆盖地区（${airport.regions.join("、")}）及协议支持。提供每GB单价折算、设备并发限制（${airport.deviceLimit}）与实测数据核验档案。`;
+const keywords = `${airport.name}, ${airport.name}怎么样, ${airport.name}如何, ${airport.name}价格, ${airport.name}流量, ${airport.name}节点, ${airport.name}测速, ${airport.name}官网, ${airport.name}参数, 翻墙机场数据库, 梯子推荐, 机场推荐`;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs
+      items={[
+        { name: "机场资料库", href: "/airport/" },
+        { name: `${airport.name}档案` }
+      ]}
+    />
+
+    <div class="max-w-reading mx-auto mt-4 bg-white rounded-2xl border border-slate-200 p-6 sm:p-10 shadow-sm">
+      <header class="border-b border-slate-100 pb-6 mb-8">
+        <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 leading-tight mb-4 tracking-tight">
+          {airport.name}怎么样？品牌套餐价格、流量配置、节点协议与参数档案
+        </h1>
+        <div class="flex flex-wrap items-center gap-4 text-xs text-slate-500">
+          <span>核验日期：{airport.lastVerified}</span>
+          <span>·</span>
+          <span>状态：编辑部实测通过</span>
+          <span>·</span>
+          <span>数据源：官方实时抓取核验</span>
+        </div>
+      </header>
+
+      <!-- Overview Box -->
+      <div class="bg-slate-50 border border-slate-200 rounded-xl p-5 mb-8 text-sm space-y-2">
+        <div class="font-bold text-slate-900 text-base mb-2">📋 品牌基础概况</div>
+        <p class="text-slate-700 leading-relaxed">{airport.description}</p>
+        <p class="text-slate-800">
+          <strong>起步资费：</strong>¥{airport.startingPrice.toFixed(Number.isInteger(airport.startingPrice)?0:1)} {airport.currency}
+        </p>
+        <p class="text-slate-800">
+          <strong>设备并发限制：</strong>{airport.deviceLimit}
+        </p>
+        {airport.coupon && (
+          <p class="text-slate-800">
+            <strong>专属优惠码：</strong>
+            <code class="text-blue-600 font-bold bg-blue-50 px-2 py-0.5 rounded border border-blue-200 font-mono">
+              {airport.coupon}
+            </code>
+          </p>
+        )}
+        <div class="pt-3">
+          <a
+            href={airport.affiliateUrl}
+            target="_blank"
+            rel="noopener nofollow"
+            class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-2 px-4 rounded-lg transition"
+          >
+            直达 {airport.name} 官网
+          </a>
+        </div>
+      </div>
+
+      <!-- Pricing Plans -->
+      <h2 class="text-xl font-bold text-slate-900 mb-3 border-l-4 border-blue-600 pl-3">
+        套餐资费详细清单
+      </h2>
+      <div class="overflow-x-auto border border-slate-200 rounded-xl my-4">
+        <table class="w-full text-left text-xs sm:text-sm">
+          <thead class="bg-slate-50 text-slate-700 font-semibold border-b border-slate-200">
+            <tr>
+              <th class="py-2.5 px-3">套餐名称</th>
+              <th class="py-2.5 px-3">标称价格</th>
+              <th class="py-2.5 px-3">计费周期</th>
+              <th class="py-2.5 px-3">月度流量</th>
+              <th class="py-2.5 px-3">每GB单价</th>
+              <th class="py-2.5 px-3">说明备注</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100">
+            {airport.plans.map(p => (
+              <tr class="hover:bg-slate-50/50">
+                <td class="py-2.5 px-3 font-semibold text-slate-900">{p.name}</td>
+                <td class="py-2.5 px-3 text-blue-600 font-bold">¥{p.price.toFixed(Number.isInteger(p.price) ? 0 : 1)}</td>
+                <td class="py-2.5 px-3 text-slate-600">{p.billing}</td>
+                <td class="py-2.5 px-3 font-semibold text-slate-800">{p.trafficGb} GB</td>
+                <td class="py-2.5 px-3 text-slate-600 font-mono">¥{p.pricePerGb.toFixed(3)}</td>
+                <td class="py-2.5 px-3 text-slate-500 text-xs">{p.notes}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Specs -->
+      <h2 class="text-xl font-bold text-slate-900 mt-8 mb-3 border-l-4 border-blue-600 pl-3">
+        网络节点与技术能力
+      </h2>
+      <ul class="list-disc pl-5 space-y-1.5 text-sm text-slate-700 mb-8">
+        <li><strong>支持客户端协议：</strong>{airport.protocols.join("、")}</li>
+        <li><strong>覆盖地区：</strong>{airport.regions.join("、")}</li>
+        <li><strong>AI工具解锁：</strong>{airport.aiSupport.join("、")}</li>
+        <li><strong>流媒体解锁：</strong>{airport.streamingSupport.join("、")}</li>
+      </ul>
+
+      <!-- Link to Review -->
+      <div class="p-5 bg-blue-50 border border-blue-200 rounded-xl flex items-center justify-between">
+        <div>
+          <div class="font-bold text-blue-900 text-sm">想查看晚高峰测速曲线与实际网络表现？</div>
+          <p class="text-xs text-blue-700 mt-0.5">包含中国电信、联通、移动千兆实测 Ping 延迟与 YouTube 4K 播放测试。</p>
+        </div>
+        <a
+          href={`/review/${airport.slug}/`}
+          class="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-xs py-2 px-4 rounded-lg transition whitespace-nowrap ml-4"
+        >
+          阅读评测报告
+        </a>
+      </div>
+    </div>
+  </div>
+</BaseLayout>

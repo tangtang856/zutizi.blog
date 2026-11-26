@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import AirportCard from '../../components/AirportCard.astro';
+import { AIRPORTS } from '../../data/airports';
+
+const title = "ChatGPT/Claude专用机场推荐 - 原生住宅IP防封号 - 竹梯子博客";
+const description = "ChatGPT/Claude/AI生产力专用机场推荐专题。部署纯净住宅IP与高信任度落地节点，彻底规避 Access Denied 报错与封号风险。";
+const keywords = "ChatGPT机场推荐, Claude可用梯子, OpenAI防封IP, 原生住宅IP机场, AI生产力加速";
+
+const list = AIRPORTS.filter(a => a.aiSupport.includes("ChatGPT") || a.aiSupport.includes("Claude"));
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  keywords={keywords}
+>
+  <div class="max-w-content mx-auto px-4 sm:px-6 pt-4 pb-16">
+    <Breadcrumbs
+      items={[
+        { name: "机场推荐", href: "/recommend/" },
+        { name: "AI/ChatGPT专用" }
+      ]}
+    />
+
+    <header class="mb-8">
+      <h1 class="text-3xl font-extrabold text-slate-900 tracking-tight sm:text-4xl">
+        ChatGPT / Claude 专用 AI 机场推荐
+      </h1>
+      <p class="mt-2 text-sm text-slate-600 max-w-2xl leading-relaxed">
+        经过 OpenAI 与 Anthropic 风控防火墙深度拨测，节点 IP 纯净度高，解决 Access Denied、无法登录与封号难题。
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {list.map(airport => (
+        <AirportCard airport={airport} />
+      ))}
+    </div>
+  </div>
+</BaseLayout>
