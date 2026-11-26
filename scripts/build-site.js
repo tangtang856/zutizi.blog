@@ -153,16 +153,20 @@ function wrapHtml({ title, description, canonicalPath, relPrefix, activeNav, bre
 // 辅助：生成卡片HTML
 function generateAirportCard(airport, relPrefix) {
   const minPlan = airport.plans[0];
+  const couponBadge = airport.coupon ? `<span class="badge badge-amber" style="margin-left:0.4rem;">券: ${airport.coupon}</span>` : "";
   return `
   <div class="airport-card">
     <div class="airport-card-header">
       <h3 class="airport-name"><a href="${relPrefix}review/${airport.slug}.html">${airport.name}</a></h3>
-      <span class="badge ${airport.testStatus === 'tested' ? 'badge-green' : 'badge-blue'}">
-        ${airport.testStatus === 'tested' ? '编辑部实测' : '官方核验'}
-      </span>
+      <div>
+        <span class="badge ${airport.testStatus === 'tested' ? 'badge-green' : 'badge-blue'}">
+          ${airport.testStatus === 'tested' ? '实测通过' : '官方核验'}
+        </span>
+        ${couponBadge}
+      </div>
     </div>
     <div class="airport-price-row">
-      <span class="price-val">¥${airport.startingPrice.toFixed(2)}</span>
+      <span class="price-val">¥${airport.startingPrice.toFixed(minPlan && Number.isInteger(minPlan.price) ? 0 : 1)}</span>
       <span class="price-unit">/${minPlan ? minPlan.billing : '月'}起</span>
       <span class="price-sub">${minPlan ? `${minPlan.trafficGb}GB | 每GB ¥${minPlan.pricePerGb.toFixed(3)}` : ''}</span>
     </div>
@@ -173,8 +177,9 @@ function generateAirportCard(airport, relPrefix) {
       <li class="feature-item con">${airport.disadvantages[0] || '晚高峰建议优选高优先级专线'}</li>
     </ul>
     <div class="card-footer">
-      <a href="${relPrefix}review/${airport.slug}.html" class="btn btn-primary btn-sm" style="flex:1;">查看深度评测</a>
-      <a href="${relPrefix}airport/${airport.slug}.html" class="btn btn-outline btn-sm">参数资料</a>
+      <a href="${airport.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm" style="flex:1;">官网直达</a>
+      <a href="${relPrefix}review/${airport.slug}.html" class="btn btn-outline btn-sm">评测报告</a>
+      <a href="${relPrefix}airport/${airport.slug}.html" class="btn btn-outline btn-sm">参数</a>
     </div>
   </div>`;
 }
