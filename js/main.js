@@ -110,4 +110,89 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     }
   }, { passive: true });
+
+  // 8. 头部“联络我们”弹窗交互与剪贴板一键复制
+  const contactTrigger = document.getElementById("header-contact-trigger");
+  const contactPanel = document.getElementById("contact-dropdown-panel");
+  const contactClose = document.getElementById("contact-dropdown-close");
+
+  if (contactTrigger && contactPanel) {
+    contactTrigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const isActive = contactPanel.classList.toggle("active");
+      contactTrigger.classList.toggle("active", isActive);
+      contactTrigger.setAttribute("aria-expanded", isActive);
+    });
+
+    if (contactClose) {
+      contactClose.addEventListener("click", function (e) {
+        e.stopPropagation();
+        contactPanel.classList.remove("active");
+        contactTrigger.classList.remove("active");
+        contactTrigger.setAttribute("aria-expanded", "false");
+      });
+    }
+
+    // 点击弹窗外部区域自动关闭
+    document.addEventListener("click", function (e) {
+      if (!contactPanel.contains(e.target) && !contactTrigger.contains(e.target)) {
+        contactPanel.classList.remove("active");
+        contactTrigger.classList.remove("active");
+        contactTrigger.setAttribute("aria-expanded", "false");
+      }
+    });
+
+    // 阻止点击弹窗内部时冒泡导致关闭
+    contactPanel.addEventListener("click", function (e) {
+      e.stopPropagation();
+    });
+  }
+
+  // 9. 一键复制功能（支持现代 API 及优雅降级）
+  const copyButtons = document.querySelectorAll(".channel-copy-btn");
+  if (copyButtons.length > 0) {
+    copyButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        const textToCopy = this.getAttribute("data-copy-text");
+        if (!textToCopy) return;
+
+        const originalText = this.innerHTML;
+        const currentBtn = this;
+
+        function showCopiedFeedback() {
+          currentBtn.innerHTML = "<span>✓ 已复制！</span>";
+          currentBtn.classList.add("copied");
+          setTimeout(function () {
+            currentBtn.innerHTML = originalText;
+            currentBtn.classList.remove("copied");
+          }, 2000);
+        }
+
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(textToCopy).then(showCopiedFeedback).catch(function () {
+            fallbackCopy(textToCopy, showCopiedFeedback);
+          });
+        } else {
+          fallbackCopy(textToCopy, showCopiedFeedback);
+        }
+      });
+    });
+  }
+
+  function fallbackCopy(text, callback) {
+    const tempInput = document.createElement("textarea");
+    tempInput.value = text;
+    tempInput.style.position = "fixed";
+    tempInput.style.opacity = "0";
+    document.body.appendChild(tempInput);
+    tempInput.focus();
+    tempInput.select();
+    try {
+      document.execCommand("copy");
+      if (callback) callback();
+    } catch (err) {
+      console.warn("复制失败", err);
+    }
+    document.body.removeChild(tempInput);
+  }
 });

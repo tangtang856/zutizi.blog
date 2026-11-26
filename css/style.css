@@ -907,6 +907,332 @@ img {
    2026 �ִ������ظ��Ӿ������չ (Modern Portal UI Extensions)
    ======================================================== */
 
+/* ========================================================
+   头部“联络我们”按钮与专业联系弹窗 (Header Contact Dropdown)
+   ======================================================== */
+
+.header-contact-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.75rem;
+}
+
+.header-contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--secondary);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.42rem 0.9rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  outline: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.header-contact-btn:hover,
+.header-contact-btn.active {
+  background: #eff6ff;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 8px rgba(37, 99, 235, 0.18);
+}
+
+.contact-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: -20px;
+  width: 380px;
+  max-width: 92vw;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  box-shadow: 0 14px 38px rgba(15, 23, 42, 0.16);
+  padding: 1.25rem;
+  z-index: 10000;
+  display: none;
+  animation: contactFadeIn 0.2s ease-out;
+}
+
+.contact-dropdown.active {
+  display: block;
+}
+
+@keyframes contactFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.contact-dropdown-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.contact-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.contact-online-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #16a34a;
+  background: #dcfce7;
+  padding: 0.15rem 0.45rem;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.contact-online-badge::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #16a34a;
+}
+
+.contact-main-title {
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.contact-close-btn {
+  background: none;
+  border: none;
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0.1rem 0.35rem;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+}
+
+.contact-close-btn:hover {
+  background: #f1f5f9;
+  color: var(--secondary);
+}
+
+.contact-intro-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.contact-channels-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.contact-channel-card {
+  background: #f8fafc;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem;
+  transition: all 0.2s ease;
+}
+
+.contact-channel-card:hover {
+  border-color: #cbd5e1;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+.contact-channel-card.tg-theme:hover {
+  border-color: #38bdf8;
+}
+
+.contact-channel-card.mail-theme:hover {
+  border-color: #fb7185;
+}
+
+.channel-card-top {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.45rem;
+}
+
+.channel-icon {
+  font-size: 1.3rem;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+.channel-text-meta {
+  flex: 1;
+}
+
+.channel-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.channel-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--secondary);
+}
+
+.channel-tag {
+  font-size: 0.68rem;
+  font-weight: 700;
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
+}
+
+.channel-tag.priority {
+  background: #e0f2fe;
+  color: #0284c7;
+}
+
+.channel-tag.official {
+  background: #fef2f2;
+  color: #e11d48;
+}
+
+.channel-sub {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  display: block;
+}
+
+.channel-value-box {
+  background: #ffffff;
+  border: 1px dashed var(--border-color);
+  border-radius: 4px;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  color: var(--primary);
+  margin-bottom: 0.65rem;
+  word-break: break-all;
+}
+
+.channel-actions-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.channel-action-btn {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  padding: 0.42rem 0.6rem;
+  border-radius: 6px;
+  text-decoration: none !important;
+  transition: all 0.15s ease;
+}
+
+.channel-action-btn.primary-tg {
+  background: #0284c7;
+  color: #ffffff !important;
+}
+
+.channel-action-btn.primary-tg:hover {
+  background: #0369a1;
+}
+
+.channel-action-btn.primary-mail {
+  background: #e11d48;
+  color: #ffffff !important;
+}
+
+.channel-action-btn.primary-mail:hover {
+  background: #be123c;
+}
+
+.channel-copy-btn {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  color: var(--secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.42rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  white-space: nowrap;
+}
+
+.channel-copy-btn:hover {
+  background: #f1f5f9;
+  border-color: #cbd5e1;
+}
+
+.channel-copy-btn.copied {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #16a34a;
+}
+
+.contact-dropdown-bottom {
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.trust-notice {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+}
+
+.trust-notice code {
+  font-weight: 700;
+  color: var(--primary);
+  background: #eff6ff;
+  padding: 0.1rem 0.3rem;
+  border-radius: 3px;
+}
+
+@media (max-width: 640px) {
+  .contact-dropdown {
+    position: fixed;
+    top: 65px;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    max-width: none;
+  }
+}
+
 .header-cta-btn {
   background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color: #ffffff !important;
