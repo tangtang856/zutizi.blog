@@ -88,7 +88,8 @@ img {
   padding: 0.85rem 1.25rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 1.25rem;
 }
 
 .logo-brand {
@@ -100,6 +101,7 @@ img {
   color: var(--secondary);
   text-decoration: none;
   letter-spacing: -0.02em;
+  flex-shrink: 0;
 }
 
 .logo-badge {
@@ -114,8 +116,10 @@ img {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1.35rem;
   list-style: none;
+  margin-left: 2rem;
+  margin-right: auto;
 }
 
 .nav-link {
@@ -980,6 +984,13 @@ img {
   }
 }
 
+@media (max-width: 1180px) {
+  .nav-links {
+    gap: 1rem;
+    margin-left: 1.25rem;
+  }
+}
+
 @media (max-width: 768px) {
   .hero-title {
     font-size: 1.75rem;
@@ -993,6 +1004,8 @@ img {
   .nav-links {
     display: none;
     position: absolute;
+    margin-left: 0;
+    margin-right: 0;
     top: 100%;
     left: 0;
     right: 0;
