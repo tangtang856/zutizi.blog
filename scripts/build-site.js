@@ -33,7 +33,7 @@ function getHeader(relPrefix, activeNav = "") {
         <li><a href="${relPrefix}blog/index.html" class="nav-link ${activeNav === 'blog' ? 'active' : ''}">深度博客</a></li>
         <li><a href="${relPrefix}glossary/index.html" class="nav-link ${activeNav === 'glossary' ? 'active' : ''}">知识百科</a></li>
       </ul>
-      <a href="${relPrefix}index.html#speed-matrix" class="header-cta-btn">⚡ 晚高峰测速榜</a>
+      <a href="${relPrefix}ranking/overall.html" class="header-cta-btn">⚡ 晚高峰测速榜</a>
     </div>
   </header>`;
 }
