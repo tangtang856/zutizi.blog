@@ -1,0 +1,38 @@
+Keyword,Intent,Target URL,Page Type,Priority,Title,H1
+机场推荐,商业调查/交易,https://zutizi.blog/,首页,P0,2026专业机场推荐与梯子节点测评指南 - 竹梯子博客,2026精选机场推荐与VPN节点评测指南
+机场节点,信息/技术,https://zutizi.blog/recommend/stable.html,推荐专题,P0,稳定机场节点推荐 - 2026高速IPLC专线节点选择指南,高稳定性机场节点与专线线路推荐
+性价比机场,商业调查,https://zutizi.blog/ranking/value.html,排行榜,P0,性价比机场排行榜 - 2026低成本高流量机场节点实测推荐,2026高性价比机场排行榜与每GB单价测算
+梯子推荐,商业调查/交易,https://zutizi.blog/recommend/index.html,推荐汇总,P0,2026梯子推荐与翻墙机场节点全分类指南 - 竹梯子博客,2026梯子推荐与翻墙机场选择指南
+vpn,信息/比较,https://zutizi.blog/blog/vpn-vs-airport.html,深度文章,P0,VPN与机场有什么区别？2026翻墙原理与优缺点深度对比,VPN与机场节点全面对比：区别、原理与选购建议
+vpn机场,商业调查,https://zutizi.blog/ranking/overall.html,综合排行,P0,2026综合VPN机场推荐排行榜 - 节点速度与稳定性评测,2026综合VPN机场推荐榜
+vpn节点,技术/信息,https://zutizi.blog/blog/node-speed-test-guide.html,技术指南,P0,VPN节点测速与延迟分析方法 - 如何选出真正快速稳定的节点,VPN节点测速与线路延迟深度解析
+vpn推荐,商业调查/交易,https://zutizi.blog/recommend/beginner.html,入门专题,P0,新手VPN推荐与机场节点配置入门指南 - 零门槛一键上手,新手VPN与机场节点入门推荐
+便宜机场推荐,交易,https://zutizi.blog/recommend/budget.html,推荐专题,P1,便宜低价机场推荐 - 月付10元以下高性价比节点盘点,平价低预算机场推荐清单
+高端专线机场,交易,https://zutizi.blog/recommend/premium.html,推荐专题,P1,高端专线机场推荐 - 2026旗舰IPLC内网专线节点精选,高端IPLC专线机场评测与推荐
+ChatGPT专用机场,交易/意图,https://zutizi.blog/recommend/ai.html,推荐专题,P1,AI工具与ChatGPT专用机场推荐 - 原生IP解锁不降智,ChatGPT与AI工具专用机场推荐
+流媒体解锁机场,交易/意图,https://zutizi.blog/recommend/streaming.html,推荐专题,P1,Netflix/Disney+流媒体解锁机场推荐 - 4K秒开节点精选,流媒体4K解锁机场推荐
+低预算机场排行榜,商业调查,https://zutizi.blog/ranking/budget.html,排行榜,P1,低预算平价机场排行榜 - 便宜好用的备用与轻度翻墙节点,低预算平价机场排行榜
+稳定性机场排行榜,商业调查,https://zutizi.blog/ranking/stable.html,排行榜,P1,稳定翻墙机场排行榜 - 晚高峰不卡顿抗封锁节点盘点,高稳定机场节点排行榜
+机场对比工具,工具/比较,https://zutizi.blog/compare/index.html,交互工具,P1,机场横向对比工具 - 价格/流量/节点线路参数对比,机场横向对比工具
+Windows翻墙教程,教程,https://zutizi.blog/guides/windows.html,教程中心,P1,Windows电脑客户端使用教程 - Clash Verge Rev快速配置指南,Windows系统机场客户端配置教程
+Android手机翻墙,教程,https://zutizi.blog/guides/android.html,教程中心,P1,Android安卓手机客户端配置教程 - Clash Meta与Sing-box设置,Android安卓手机机场节点配置教程
+iOS苹果翻墙配置,教程,https://zutizi.blog/guides/ios.html,教程中心,P1,iOS苹果手机翻墙教程 - Shadowrocket小火箭订阅配置指南,iOS苹果系统Shadowrocket配置教程
+macOS苹果电脑翻墙,教程,https://zutizi.blog/guides/macos.html,教程中心,P1,macOS苹果电脑客户端配置教程 - Clash与Sing-box使用指南,macOS苹果电脑机场客户端配置教程
+如何选择机场节点,信息/指南,https://zutizi.blog/blog/how-to-choose-airport.html,深度文章,P1,如何选择适合自己的机场节点？避坑防跑路完整选购指南,如何选择适合自己的机场节点？避坑指南
+IPLC专线原理,技术/百科,https://zutizi.blog/blog/iplc-iepl-transit-explained.html,深度文章,P1,IPLC/IEPL专线与中继隧道有什么区别？线路原理解析,IPLC、IEPL与普通中继线路全面解析
+翻墙安全性与隐私保护,安全/指南,https://zutizi.blog/blog/airport-security-privacy.html,深度文章,P1,机场翻墙安全吗？日志记录、加密协议与隐私防范指南,翻墙安全性与隐私保护实用指南
+什么是Clash,术语解释,https://zutizi.blog/glossary/clash.html,百科术语,P2,Clash是什么？Clash客户端核心概念与订阅规则详解,Clash核心概念与订阅机制详解
+什么是IPLC专线,术语解释,https://zutizi.blog/glossary/iplc.html,百科术语,P2,什么是IPLC专线？国际专线网络优势与工作原理科普,IPLC国际专线网络科普
+什么是V2Ray,术语解释,https://zutizi.blog/glossary/v2ray.html,百科术语,P2,V2Ray/VMess/VLESS协议详解 - 翻墙底层技术原理,V2Ray与VMess/VLESS协议详解
+什么是Shadowsocks,术语解释,https://zutizi.blog/glossary/shadowsocks.html,百科术语,P2,Shadowsocks(SS)协议详解 - 经典轻量级代理协议介绍,Shadowsocks协议原理与特点
+分流规则与策略组,术语解释,https://zutizi.blog/glossary/rule-group.html,百科术语,P2,什么是分流规则与策略组？国内直连与国外代理设置技巧,代理分流规则与策略组配置详解
+飞鸟云评测,品牌评测,https://zutizi.blog/review/feiniaoyun.html,品牌评测,P1,飞鸟云机场深度评测 - 线路质量、套餐价格与真实体验,飞鸟云独立评测报告
+速鹰666评测,品牌评测,https://zutizi.blog/review/jsvoo.html,品牌评测,P1,速鹰666机场深度评测 - 老牌低价机场线路与性价比分析,速鹰666独立评测报告
+宽带公社评测,品牌评测,https://zutizi.blog/review/kuandai.html,品牌评测,P1,宽带公社机场深度评测 - 中继专线节点与流媒体解锁测试,宽带公社独立评测报告
+魔戒评测,品牌评测,https://zutizi.blog/review/mobi.html,品牌评测,P1,魔戒Mobi机场深度评测 - 不限时计费套餐与备用节点解析,魔戒Mobi独立评测报告
+Fastlink评测,品牌评测,https://zutizi.blog/review/fastlink.html,品牌评测,P1,Fastlink机场深度评测 - 全球BGP Anycast节点稳定性分析,Fastlink独立评测报告
+关于我们,信誉背书,https://zutizi.blog/about.html,单页,P2,关于我们 - 竹梯子博客评测团队介绍与使命,关于竹梯子博客
+编辑政策,信誉背书,https://zutizi.blog/editorial-policy.html,单页,P2,编辑政策与评测标准 - 独立客观的测试规范声明,编辑政策与测试评估标准
+联系我们,信誉背书,https://zutizi.blog/contact.html,单页,P2,联系我们 - 问题反馈与商业合作沟通渠道,联系我们
+免责声明,合规,https://zutizi.blog/disclaimer.html,单页,P2,免责声明与服务条款 - 网络合规与知识说明,免责声明
+隐私政策,合规,https://zutizi.blog/privacy-policy.html,单页,P2,隐私政策 - 数据收集与安全保护承诺,隐私政策

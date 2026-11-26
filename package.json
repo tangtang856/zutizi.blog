@@ -1,0 +1,27 @@
+{
+  "name": "zutizi-blog",
+  "version": "1.0.0",
+  "description": "zutizi.blog - 专业中文机场节点推荐与Bing SEO资讯系统",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node scripts/check-links.js && node scripts/audit-seo.js && node scripts/validate-content.js",
+    "check-links": "node scripts/check-links.js",
+    "audit": "node scripts/audit-seo.js",
+    "validate": "node scripts/validate-content.js",
+    "indexnow": "node scripts/indexnow.js",
+    "build": "node scripts/check-links.js && node scripts/audit-seo.js"
+  },
+  "keywords": [
+    "机场推荐",
+    "机场节点",
+    "性价比机场",
+    "梯子推荐",
+    "vpn",
+    "vpn机场",
+    "vpn节点",
+    "vpn推荐"
+  ],
+  "author": "zutizi.blog",
+  "license": "MIT"
+}

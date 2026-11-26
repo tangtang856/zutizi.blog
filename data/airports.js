@@ -1,0 +1,194 @@
+/**
+ * zutizi.blog - 统一机场数据源
+ * 遵循严格的数据结构规范，所有推荐、排行、评测及对比系统均由此统一调取
+ */
+
+export const AIRPORTS = [
+  {
+    id: "feiniaoyun",
+    name: "飞鸟云",
+    slug: "feiniaoyun",
+    description: "老牌BGP中继与IPLC专线机场，节点分布均衡，支持流媒体4K秒开与ChatGPT等AI工具原生解锁，新手友好。",
+    officialUrl: "https://feiniaoyun.com",
+    affiliateUrl: "https://feiniaoyun.com",
+    startingPrice: 15.00,
+    currency: "CNY",
+    plans: [
+      { name: "基础版", price: 15.00, billing: "月付", trafficGb: 100, pricePerGb: 0.150, hasMultiplier: false, notes: "全中继线路，适合日常网页查资料与轻度流媒体" },
+      { name: "标准版", price: 30.00, billing: "月付", trafficGb: 250, pricePerGb: 0.120, hasMultiplier: false, notes: "中继+IPLC混合，适合主力看4K视频与办公" },
+      { name: "旗舰专线版", price: 60.00, billing: "月付", trafficGb: 600, pricePerGb: 0.100, hasMultiplier: false, notes: "纯物理IPLC专线，晚高峰无卡顿，大流量首选" }
+    ],
+    protocols: ["Shadowsocks", "V2Ray (VMess)", "Trojan"],
+    regions: ["香港", "日本", "新加坡", "美国", "台湾", "韩国", "英国", "德国"],
+    deviceLimit: "不限制在线设备数（合理使用）",
+    aiSupport: ["ChatGPT", "Claude", "Gemini", "Copilot"],
+    streamingSupport: ["Netflix (港/美/日/新)", "Disney+", "YouTube Premium", "HBO Max"],
+    advantages: [
+      "全节点解锁主流流媒体与AI对话工具",
+      "提供高优先级专线中继节点，晚高峰延迟低且波动小",
+      "支持Shadowsocks与Trojan等通用客户端订阅",
+      "后台提供详细易懂的Windows/Mac/iOS/Android一键配置教程"
+    ],
+    disadvantages: [
+      "入门15元套餐未开放极速IPLC内网专线节点",
+      "大型节假日期间部分热门节点可能出现偶发队列波动"
+    ],
+    suitableFor: [
+      "新手入门及不想折腾繁琐配置的用户",
+      "YouTube 4K与海外流媒体重度观众",
+      "多设备同时在线的学生宿舍与多家庭成员环境"
+    ],
+    sources: ["飞鸟云官网套餐公布资料", "2026年11月实测网络延迟与流媒体检测数据"],
+    lastVerified: "2026-11-20",
+    testStatus: "tested"
+  },
+  {
+    id: "jsvoo",
+    name: "速鹰666",
+    slug: "jsvoo",
+    description: "极具性价比的老牌低价机场，以大流量和平民级月付见长，适合学生党及备用翻墙需求。",
+    officialUrl: "https://jsvoo.com",
+    affiliateUrl: "https://jsvoo.com",
+    startingPrice: 9.90,
+    currency: "CNY",
+    plans: [
+      { name: "入门月付", price: 9.90, billing: "月付", trafficGb: 80, pricePerGb: 0.124, hasMultiplier: false, notes: "入门级月付，超低试错成本" },
+      { name: "畅享季付", price: 28.00, billing: "季付", trafficGb: 300, pricePerGb: 0.093, hasMultiplier: false, notes: "折合月付9.3元，每GB不到0.1元" },
+      { name: "旗舰年付", price: 99.00, billing: "年付", trafficGb: 1200, pricePerGb: 0.083, hasMultiplier: false, notes: "大流量年付方案，适合海量下载与预算控制" }
+    ],
+    protocols: ["Shadowsocks", "V2Ray (VMess)"],
+    regions: ["香港", "日本", "美国", "新加坡", "台湾"],
+    deviceLimit: "限制2台设备同时在线",
+    aiSupport: ["ChatGPT (部分美日节点)", "Copilot"],
+    streamingSupport: ["YouTube 4K", "Netflix (部分节点自制剧)"],
+    advantages: [
+      "月付起步不到10元，属于市场极低价格带",
+      "年付均摊每GB单价极低，性价比优势突出",
+      "运营历史长，面板简单易操作"
+    ],
+    disadvantages: [
+      "晚高峰8点到10点直连中继节点延迟偶有波动",
+      "流媒体与ChatGPT非全节点解锁，需挑选指定解锁节点",
+      "限制同时在线设备数量为2台"
+    ],
+    suitableFor: [
+      "预算有限的学生群体",
+      "寻找低成本备用节点防失联的翻墙者",
+      "主要用于日常查阅文献、GitHub与网页浏览的轻度用户"
+    ],
+    sources: ["速鹰666官网套餐公告", "编辑部自费账户抽测记录"],
+    lastVerified: "2026-11-18",
+    testStatus: "tested"
+  },
+  {
+    id: "kuandai",
+    name: "宽带公社",
+    slug: "kuandai",
+    description: "主打企业级抗封锁与高稳定中继专线，全面部署Hysteria 2与Trojan协议，原生住宅IP解锁，适合商务办公。",
+    officialUrl: "https://kuandaigongshe.com",
+    affiliateUrl: "https://kuandaigongshe.com",
+    startingPrice: 22.00,
+    currency: "CNY",
+    plans: [
+      { name: "基础中继", price: 22.00, billing: "月付", trafficGb: 150, pricePerGb: 0.147, hasMultiplier: false, notes: "BGP入口智能调度，晚高峰丢包率小于0.5%" },
+      { name: "进阶专线", price: 42.00, billing: "月付", trafficGb: 350, pricePerGb: 0.120, hasMultiplier: false, notes: "BGP+IPLC端到端专线，低延迟游戏与外贸办公" },
+      { name: "尊享年付", price: 399.00, billing: "年付", trafficGb: 4800, pricePerGb: 0.083, hasMultiplier: false, notes: "企业级SLA保障，支持专属客服响应" }
+    ],
+    protocols: ["Trojan", "VLESS", "Hysteria 2"],
+    regions: ["香港", "日本", "新加坡", "美国", "台湾", "英国", "澳大利亚"],
+    deviceLimit: "限制5台设备同时在线",
+    aiSupport: ["ChatGPT (原生纯净IP)", "Claude (全节点支持)", "Gemini"],
+    streamingSupport: ["Netflix 全区", "Disney+", "YouTube Premium", "BBC iPlayer", "Hulu"],
+    advantages: [
+      "全面支持Hysteria 2及VLESS协议，抗封锁及高丢包环境表现优异",
+      "纯净住宅原生IP池，ChatGPT及Claude账号不风控不降智",
+      "晚高峰8点至11点SLA连通率高达99.9%"
+    ],
+    disadvantages: [
+      "月付门槛比廉价机场略高",
+      "使用新协议需确保客户端版本保持最新（如Clash Verge Rev或Sing-box）"
+    ],
+    suitableFor: [
+      "跨国远程办公人员、外贸跨境电商卖家",
+      "对ChatGPT及Claude等生产力AI有高频依赖的专业工作者",
+      "对网络断连零容忍的重度稳定需求者"
+    ],
+    sources: ["宽带公社服务级别协议公告", "全天候连通率监控平台mtr日志"],
+    lastVerified: "2026-11-22",
+    testStatus: "tested"
+  },
+  {
+    id: "mobi",
+    name: "魔戒",
+    slug: "mobi",
+    description: "国内知名不限时按量计费机场，流量永不过期直至耗尽，零月租无续费压力，备用防失联神器。",
+    officialUrl: "https://mobi.cloud",
+    affiliateUrl: "https://mobi.cloud",
+    startingPrice: 14.90,
+    currency: "CNY",
+    plans: [
+      { name: "极速体验包", price: 14.90, billing: "不限时", trafficGb: 130, pricePerGb: 0.115, hasMultiplier: false, notes: "永久有效直至用完，免去月租浪费" },
+      { name: "备用大包", price: 29.90, billing: "不限时", trafficGb: 300, pricePerGb: 0.100, hasMultiplier: false, notes: "折合每GB 0.1元，适合偶发性大文件下载" },
+      { name: "海量尊享包", price: 59.90, billing: "不限时", trafficGb: 700, pricePerGb: 0.086, hasMultiplier: false, notes: "超大按量包，适合长期放置作为应急主备" }
+    ],
+    protocols: ["Shadowsocks", "V2Ray (VMess)"],
+    regions: ["香港", "日本", "新加坡", "美国", "台湾", "英国"],
+    deviceLimit: "不限制设备数量",
+    aiSupport: ["ChatGPT (部分节点)", "Gemini", "Copilot"],
+    streamingSupport: ["YouTube 4K", "Netflix 常用区", "Disney+"],
+    advantages: [
+      "不限时长按量计费，买多少用多少，彻底杜绝月末流量清零浪费",
+      "不限制在线设备数，可全家或多设备随心共享",
+      "作为备用节点无维护成本，是翻墙防失联的最佳选择"
+    ],
+    disadvantages: [
+      "不限时套餐未配备高成本物理独享专线",
+      "工单支持响应时间通常在数小时内，无实时即时客服"
+    ],
+    suitableFor: [
+      "月用量较少或偶尔才需要翻墙查看资料的用户",
+      "已有主力机场，寻找高质量备用线路防封锁的稳健型用户",
+      "多台IoT设备或家庭服务器轻量数据同步"
+    ],
+    sources: ["魔戒官方资费页面与充值说明", "用户社区公认口碑"],
+    lastVerified: "2026-11-21",
+    testStatus: "official-data"
+  },
+  {
+    id: "fastlink",
+    name: "Fastlink",
+    slug: "fastlink",
+    description: "全球Anycast智能就近接入的国际化机场，节点覆盖全球多达数十个国家与地区，具备冷门低价区解锁能力。",
+    officialUrl: "https://fastlink.pro",
+    affiliateUrl: "https://fastlink.pro",
+    startingPrice: 20.00,
+    currency: "CNY",
+    plans: [
+      { name: "体验套餐", price: 20.00, billing: "月付", trafficGb: 120, pricePerGb: 0.167, hasMultiplier: false, notes: "Anycast BGP入口，适合大众网络访问" },
+      { name: "商业套餐", price: 38.00, billing: "月付", trafficGb: 300, pricePerGb: 0.127, hasMultiplier: false, notes: "中继+IPLC双重冗余，含土耳其/阿根廷冷门节点" },
+      { name: "尊荣套餐", price: 65.00, billing: "月付", trafficGb: 600, pricePerGb: 0.108, hasMultiplier: false, notes: "物理纯专线，千兆带宽端口，极致速度体验" }
+    ],
+    protocols: ["Shadowsocks", "Trojan", "V2Ray"],
+    regions: ["香港", "日本", "美国", "新加坡", "台湾", "德国", "法国", "土耳其", "阿根廷"],
+    deviceLimit: "限制4台设备同时在线",
+    aiSupport: ["ChatGPT (原生住宅IP)", "Claude", "Gemini", "Poe"],
+    streamingSupport: ["Netflix 全球主要区", "Disney+", "YouTube 4K/8K", "DAZN", "AbemaTV"],
+    advantages: [
+      "全球Anycast多节点智能就近调度，国内跨省漫游自动寻找最优入口",
+      "独具土耳其、阿根廷、尼日利亚等热门海外订阅低价区节点",
+      "自研故障快速心跳检测，线路异常时自动切换上游"
+    ],
+    disadvantages: [
+      "多国家节点较多，对新手而言需要掌握规则策略组分流配置",
+      "高峰期极少数0.5x低倍率节点会有突发限速"
+    ],
+    suitableFor: [
+      "海外流媒体与应用跨区低价订阅玩家（YouTube Premium/Steam等）",
+      "经常在不同省份、运营商之间出差的商务人士",
+      "追求全方位协议兼容与小众冷门节点的用户"
+    ],
+    sources: ["Fastlink技术文档与控制台参数", "技术团队节点追踪与测速验证"],
+    lastVerified: "2026-11-23",
+    testStatus: "tested"
+  }
+];

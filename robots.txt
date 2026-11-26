@@ -1,0 +1,23 @@
+# Robots.txt for https://zutizi.blog
+# 允许主流搜索引擎抓取所有正式公开网页与静态资源
+
+User-agent: *
+Allow: /
+Allow: /css/
+Allow: /js/
+Allow: /data/
+Disallow: /scripts/
+Disallow: /docs/
+Disallow: /404.html
+
+# 针对 Bingbot 与 IndexNow 优化
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Googlebot
+Allow: /
+
+# Sitemap 声明
+Sitemap: https://zutizi.blog/sitemap.xml
+Sitemap: https://zutizi.blog/sitemap-index.xml
