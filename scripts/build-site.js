@@ -229,7 +229,7 @@ function generateAirportCard(airport, relPrefix, rankIndex = -1) {
         <span>⚡ 直达官网（领专属优惠）</span>
       </a>
       <div class="card-sub-actions">
-        <a href="${relPrefix}review/${airport.slug}.html" class="btn btn-review-secondary">📖 深度评测与晚高峰测速</a>
+        <a href="${relPrefix}review/${airport.slug}.html" class="btn btn-review-secondary">📖 详细评测报告</a>
         <a href="${relPrefix}airport/${airport.slug}.html" class="link-param">参数资料 &rarr;</a>
       </div>
     </div>

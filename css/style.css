@@ -517,10 +517,13 @@ img {
 
 .card-footer {
   display: flex;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.65rem;
   margin-top: auto;
   padding-top: 1rem;
   border-top: 1px solid var(--border-color);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* Category Feature Boxes */
@@ -894,7 +897,7 @@ img {
 }
 
 /* ========================================================
-   2026 ÏÖ´ú»¯·ÇÖØ¸´ÊÓ¾õ¿ò¼ÜÀ©Õ¹ (Modern Portal UI Extensions)
+   2026 ï¿½Ö´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½Ó¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¹ (Modern Portal UI Extensions)
    ======================================================== */
 
 .header-cta-btn {
@@ -1085,12 +1088,15 @@ img {
   color: #ffffff !important;
   font-weight: 700;
   font-size: 0.95rem;
-  padding: 0.65rem 1rem;
+  padding: 0.75rem 1rem;
   border-radius: var(--radius-sm);
   text-decoration: none !important;
   transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
   width: 100%;
+  box-sizing: border-box;
+  text-align: center;
+  white-space: nowrap;
 }
 .btn-aff-primary:hover {
   background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
@@ -1102,22 +1108,28 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-top: 0.6rem;
-  gap: 0.5rem;
+  gap: 0.6rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0;
 }
 
 .btn-review-secondary {
   flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  background: #ffffff;
+  background: #f8fafc;
   border: 1px solid var(--border-color);
   color: var(--text-main) !important;
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  padding: 0.4rem 0.6rem;
+  padding: 0.5rem 0.65rem;
   border-radius: var(--radius-sm);
   text-decoration: none !important;
   transition: all 0.15s ease;
+  white-space: nowrap;
 }
 .btn-review-secondary:hover {
   background: var(--bg-subtle);
