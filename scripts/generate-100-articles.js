@@ -877,24 +877,46 @@ console.log(`📚 正在准备生成 100 篇高质量博客文章...`);
 let totalGenerated = 0;
 const blogArticlesList = [];
 
+// 扁平化 100 篇文章列表，构建环形双向连续游览链条
+const allArticles = [];
 CLUSTERS.forEach(cluster => {
   cluster.articles.forEach(art => {
-    const brand = AIRPORTS.find(a => a.id === art.brand) || AIRPORTS[0];
-    blogArticlesList.push({
-      slug: art.slug,
-      title: art.title,
-      h1: art.h1,
-      desc: art.desc,
-      category: cluster.name,
-      brand: brand.name
+    allArticles.push({
+      ...art,
+      clusterName: cluster.name,
+      clusterPrefix: cluster.prefix
     });
+  });
+});
 
-    const content = `
+allArticles.forEach((art, idx) => {
+  const brand = AIRPORTS.find(a => a.id === art.brand) || AIRPORTS[0];
+  const prevArt = idx > 0 ? allArticles[idx - 1] : allArticles[allArticles.length - 1];
+  const nextArt = idx < allArticles.length - 1 ? allArticles[idx + 1] : allArticles[0];
+
+  // 筛选3篇同专题或相关推荐文章
+  let related = allArticles.filter(a => a.slug !== art.slug && a.clusterName === art.clusterName);
+  if (related.length < 3) {
+    const additional = allArticles.filter(a => a.slug !== art.slug && !related.includes(a));
+    related = related.concat(additional);
+  }
+  const relatedThree = related.slice(0, 3);
+
+  blogArticlesList.push({
+    slug: art.slug,
+    title: art.title,
+    h1: art.h1,
+    desc: art.desc,
+    category: art.clusterName,
+    brand: brand.name
+  });
+
+  const content = `
     <div class="container container-narrow">
       <div class="article-header">
         <h1 class="article-title">${art.h1}</h1>
         <div class="article-meta">
-          <span>所属专题：<strong>${cluster.name}</strong></span>
+          <span>所属专题：<strong>${art.clusterName}</strong></span>
           <span>更新日期：2026年11月26日</span>
           <span>阅读时长：约 6 分钟</span>
           <span>编写：竹梯子评测实验室</span>
@@ -902,10 +924,22 @@ CLUSTERS.forEach(cluster => {
       </div>
 
       <div class="article-body">
-        <!-- 直接回答问题 -->
+        <!-- 核心结论与快速解答 -->
         <div class="callout-box callout-success">
           <div class="callout-title">💡 核心结论与快速解答</div>
           <p>${art.summary}</p>
+        </div>
+
+        <!-- 文章全局快捷内链导航带 -->
+        <div class="article-hub-ribbon">
+          <span class="article-hub-title">🧭 站内便捷导航：</span>
+          <div class="article-hub-links">
+            <a href="index.html">📚 博客文库</a>
+            <a href="../guides/index.html">💻 客户端教程</a>
+            <a href="../ranking/overall.html">👑 综合排行榜</a>
+            <a href="../compare/index.html">⚖️ 机场对比工具</a>
+            <a href="../review/index.html">🚀 14家深度评测</a>
+          </div>
         </div>
 
         <h2>一、背景分析与技术挑战</h2>
@@ -961,6 +995,32 @@ CLUSTERS.forEach(cluster => {
         <p>
           浏览更多技术科普：<a href="index.html">深度博客主页</a>；学习客户端详细配置：<a href="../guides/index.html">使用教程中心</a>；查看每GB真实单价测算：<a href="../ranking/value.html">性价比机场排行榜</a>。
         </p>
+
+        <!-- 上一篇 / 下一篇 持续游览导航卡片 -->
+        <div class="article-navigation">
+          <a href="${prevArt.slug}.html" class="nav-card nav-prev">
+            <span class="nav-direction">← 上一篇技术文章</span>
+            <span class="nav-card-title">${prevArt.h1}</span>
+          </a>
+          <a href="${nextArt.slug}.html" class="nav-card nav-next">
+            <span class="nav-direction">下一篇技术文章 →</span>
+            <span class="nav-card-title">${nextArt.h1}</span>
+          </a>
+        </div>
+
+        <!-- 同专题相关推荐阅读矩阵 -->
+        <div class="related-section">
+          <div class="related-section-title">📌 同专题精彩推荐阅读</div>
+          <div class="related-grid">
+            ${relatedThree.map(rel => `
+              <a href="${rel.slug}.html" class="related-card">
+                <span class="related-tag">${rel.clusterName}</span>
+                <span class="related-title">${rel.h1}</span>
+                <span class="related-read-more">阅读深度解析 &rarr;</span>
+              </a>
+            `).join("")}
+          </div>
+        </div>
       </div>
     </div>
     `;
@@ -985,7 +1045,6 @@ CLUSTERS.forEach(cluster => {
     }), "utf-8");
 
     totalGenerated++;
-  });
 });
 
 console.log(`✅ 成功生成全部 ${totalGenerated} 篇独立博客文章！`);

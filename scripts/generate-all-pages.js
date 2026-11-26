@@ -1341,7 +1341,11 @@ function generateSpeedTestRows(airport) {
 }
 
 // 循环生成 14 个独立资料卡单页与 14 个独立评测单页
-AIRPORTS.forEach(a => {
+AIRPORTS.forEach((a, idx) => {
+  const prevAirport = idx > 0 ? AIRPORTS[idx - 1] : AIRPORTS[AIRPORTS.length - 1];
+  const nextAirport = idx < AIRPORTS.length - 1 ? AIRPORTS[idx + 1] : AIRPORTS[0];
+  const relatedAirports = AIRPORTS.filter(item => item.slug !== a.slug).slice(0, 3);
+
   // 1. 资料卡
   const airportCardContent = `
   <div class="container container-narrow">
@@ -1355,6 +1359,18 @@ AIRPORTS.forEach(a => {
     </div>
 
     <div class="article-body">
+      <!-- 站内全局便捷导航带 -->
+      <div class="article-hub-ribbon">
+        <span class="article-hub-title">🧭 站内便捷导航：</span>
+        <div class="article-hub-links">
+          <a href="index.html">📋 资料库主页</a>
+          <a href="../review/${a.slug}.html">🚀 ${a.name}实测报告</a>
+          <a href="../ranking/overall.html">👑 综合排行榜</a>
+          <a href="../compare/index.html">⚖️ 14家横向对比</a>
+          <a href="../guides/index.html">💻 客户端教程</a>
+        </div>
+      </div>
+
       <div class="callout-box">
         <div class="callout-title">📋 品牌基础概况</div>
         <p>${a.description}</p>
@@ -1423,6 +1439,18 @@ AIRPORTS.forEach(a => {
         欲查看我们对 ${a.name} 的完整网络测速曲线、丢包率记录与真实使用体验，请阅读：
         <a href="../review/${a.slug}.html" class="btn btn-primary btn-sm" style="margin-left:0.5rem;">阅读 ${a.name} 深度评测报告</a>
       </p>
+
+      <!-- 上一家 / 下一家 机场参数档案导航 -->
+      <div class="article-navigation">
+        <a href="${prevAirport.slug}.html" class="nav-card nav-prev">
+          <span class="nav-direction">← 上一家服务商档案</span>
+          <span class="nav-card-title">${prevAirport.name} 官方套餐与规格参数</span>
+        </a>
+        <a href="${nextAirport.slug}.html" class="nav-card nav-next">
+          <span class="nav-direction">下一家服务商档案 →</span>
+          <span class="nav-card-title">${nextAirport.name} 官方套餐与规格参数</span>
+        </a>
+      </div>
     </div>
   </div>
   `;
@@ -1455,6 +1483,18 @@ AIRPORTS.forEach(a => {
     </div>
 
     <div class="article-body">
+      <!-- 站内全局便捷导航带 -->
+      <div class="article-hub-ribbon">
+        <span class="article-hub-title">🧭 站内便捷导航：</span>
+        <div class="article-hub-links">
+          <a href="index.html">🚀 评测中心</a>
+          <a href="../airport/${a.slug}.html">📋 参数卡片</a>
+          <a href="../ranking/overall.html">👑 综合排行榜</a>
+          <a href="../compare/index.html">⚖️ 横向对比工具</a>
+          <a href="../guides/index.html">💻 客户端教程</a>
+        </div>
+      </div>
+
       <div class="callout-box callout-success">
         <div class="callout-title">🎯 一句话评测结论：</div>
         <p><strong>${a.name}</strong> 是一款${a.description} 综合测试表现优异，实测稳定性与解锁能力达标，最适合 <strong>${a.suitableFor.join("、")}</strong>。</p>
@@ -1583,6 +1623,32 @@ AIRPORTS.forEach(a => {
         <div class="callout-title">📝 评测数据来源与最后核验说明：</div>
         <p>数据来源：${a.sources.join(" / ")}</p>
         <p>最后核验日期：${a.lastVerified}（测试状态：编辑部实测通过）</p>
+      </div>
+
+      <!-- 上一家 / 下一家 独立评测导航卡片 -->
+      <div class="article-navigation">
+        <a href="${prevAirport.slug}.html" class="nav-card nav-prev">
+          <span class="nav-direction">← 上一家服务商评测</span>
+          <span class="nav-card-title">${prevAirport.name} 深度评测与测速报告</span>
+        </a>
+        <a href="${nextAirport.slug}.html" class="nav-card nav-next">
+          <span class="nav-direction">下一家服务商评测 →</span>
+          <span class="nav-card-title">${nextAirport.name} 深度评测与测速报告</span>
+        </a>
+      </div>
+
+      <!-- 更多服务商品牌横向推荐阅读矩阵 -->
+      <div class="related-section">
+        <div class="related-section-title">📌 更多高品质专线机场推荐评测</div>
+        <div class="related-grid">
+          ${relatedAirports.map(rel => `
+            <a href="${rel.slug}.html" class="related-card">
+              <span class="related-tag">${rel.protocols.slice(0, 2).join(" / ")}</span>
+              <span class="related-title">${rel.name} 深度评测（¥${rel.startingPrice}/月起）</span>
+              <span class="related-read-more">阅读测速报告 &rarr;</span>
+            </a>
+          `).join("")}
+        </div>
       </div>
     </div>
   </div>

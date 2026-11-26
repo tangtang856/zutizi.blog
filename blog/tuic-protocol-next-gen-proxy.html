@@ -52,6 +52,7 @@
         <li><a href="../blog/index.html" class="nav-link active">深度博客</a></li>
         <li><a href="../glossary/index.html" class="nav-link ">知识百科</a></li>
       </ul>
+      <a href="../ranking/overall.html" class="header-cta-btn">⚡ 晚高峰测速榜</a>
     </div>
   </header>
   <main>
@@ -70,10 +71,22 @@
       </div>
 
       <div class="article-body">
-        <!-- 直接回答问题 -->
+        <!-- 核心结论与快速解答 -->
         <div class="callout-box callout-success">
           <div class="callout-title">💡 核心结论与快速解答</div>
           <p>TUIC通过在单个QUIC连接上多路复用所有数据流，将网络握手往返延迟降至理论极限，尤其适合移动漫游场景。</p>
+        </div>
+
+        <!-- 文章全局快捷内链导航带 -->
+        <div class="article-hub-ribbon">
+          <span class="article-hub-title">🧭 站内便捷导航：</span>
+          <div class="article-hub-links">
+            <a href="index.html">📚 博客文库</a>
+            <a href="../guides/index.html">💻 客户端教程</a>
+            <a href="../ranking/overall.html">👑 综合排行榜</a>
+            <a href="../compare/index.html">⚖️ 机场对比工具</a>
+            <a href="../review/index.html">🚀 14家深度评测</a>
+          </div>
         </div>
 
         <h2>一、背景分析与技术挑战</h2>
@@ -129,6 +142,44 @@
         <p>
           浏览更多技术科普：<a href="index.html">深度博客主页</a>；学习客户端详细配置：<a href="../guides/index.html">使用教程中心</a>；查看每GB真实单价测算：<a href="../ranking/value.html">性价比机场排行榜</a>。
         </p>
+
+        <!-- 上一篇 / 下一篇 持续游览导航卡片 -->
+        <div class="article-navigation">
+          <a href="hysteria2-quic-protocol-analysis.html" class="nav-card nav-prev">
+            <span class="nav-direction">← 上一篇技术文章</span>
+            <span class="nav-card-title">Hysteria 2协议全方位解析：恶劣网络环境下的极速狂飙利器</span>
+          </a>
+          <a href="gfw-dpi-censorship-mechanisms.html" class="nav-card nav-next">
+            <span class="nav-direction">下一篇技术文章 →</span>
+            <span class="nav-card-title">国家级防火墙(GFW)深度包检测(DPI)工作机制技术拆解</span>
+          </a>
+        </div>
+
+        <!-- 同专题相关推荐阅读矩阵 -->
+        <div class="related-section">
+          <div class="related-section-title">📌 同专题精彩推荐阅读</div>
+          <div class="related-grid">
+            
+              <a href="shadowsocks-vs-v2ray-vmess.html" class="related-card">
+                <span class="related-tag">翻墙原理与协议深度解析</span>
+                <span class="related-title">Shadowsocks与V2Ray/VMess协议深度对比：区别与选型建议</span>
+                <span class="related-read-more">阅读深度解析 &rarr;</span>
+              </a>
+            
+              <a href="vless-xtls-reality-explained.html" class="related-card">
+                <span class="related-tag">翻墙原理与协议深度解析</span>
+                <span class="related-title">VLESS与Reality协议原理解析：彻底杜绝特征识别的底层革命</span>
+                <span class="related-read-more">阅读深度解析 &rarr;</span>
+              </a>
+            
+              <a href="trojan-protocol-deep-dive.html" class="related-card">
+                <span class="related-tag">翻墙原理与协议深度解析</span>
+                <span class="related-title">Trojan协议深度剖析：像特洛伊木马一样穿透网络审查</span>
+                <span class="related-read-more">阅读深度解析 &rarr;</span>
+              </a>
+            
+          </div>
+        </div>
       </div>
     </div>
     

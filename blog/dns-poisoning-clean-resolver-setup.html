@@ -52,6 +52,7 @@
         <li><a href="../blog/index.html" class="nav-link active">深度博客</a></li>
         <li><a href="../glossary/index.html" class="nav-link ">知识百科</a></li>
       </ul>
+      <a href="../ranking/overall.html" class="header-cta-btn">⚡ 晚高峰测速榜</a>
     </div>
   </header>
   <main>
@@ -70,10 +71,22 @@
       </div>
 
       <div class="article-body">
-        <!-- 直接回答问题 -->
+        <!-- 核心结论与快速解答 -->
         <div class="callout-box callout-success">
           <div class="callout-title">💡 核心结论与快速解答</div>
           <p>通过将明文UDP 53端口查询升级为基于TLS加密的DoH安全查询，审查者无法在传输路径中伪造抢答错误的假IP。</p>
+        </div>
+
+        <!-- 文章全局快捷内链导航带 -->
+        <div class="article-hub-ribbon">
+          <span class="article-hub-title">🧭 站内便捷导航：</span>
+          <div class="article-hub-links">
+            <a href="index.html">📚 博客文库</a>
+            <a href="../guides/index.html">💻 客户端教程</a>
+            <a href="../ranking/overall.html">👑 综合排行榜</a>
+            <a href="../compare/index.html">⚖️ 机场对比工具</a>
+            <a href="../review/index.html">🚀 14家深度评测</a>
+          </div>
         </div>
 
         <h2>一、背景分析与技术挑战</h2>
@@ -129,6 +142,44 @@
         <p>
           浏览更多技术科普：<a href="index.html">深度博客主页</a>；学习客户端详细配置：<a href="../guides/index.html">使用教程中心</a>；查看每GB真实单价测算：<a href="../ranking/value.html">性价比机场排行榜</a>。
         </p>
+
+        <!-- 上一篇 / 下一篇 持续游览导航卡片 -->
+        <div class="article-navigation">
+          <a href="clash-url-test-auto-switch-tuning.html" class="nav-card nav-prev">
+            <span class="nav-direction">← 上一篇技术文章</span>
+            <span class="nav-card-title">Clash url-test 自动策略组参数深度调优：兼顾速度与稳定性</span>
+          </a>
+          <a href="mtu-mss-clamping-packet-drop.html" class="nav-card nav-next">
+            <span class="nav-direction">下一篇技术文章 →</span>
+            <span class="nav-card-title">MTU 最佳分片大小深度探究：解决数据包过大导致的无故丢包</span>
+          </a>
+        </div>
+
+        <!-- 同专题相关推荐阅读矩阵 -->
+        <div class="related-section">
+          <div class="related-section-title">📌 同专题精彩推荐阅读</div>
+          <div class="related-grid">
+            
+              <a href="ping-latency-vs-real-bandwidth.html" class="related-card">
+                <span class="related-tag">节点性能测速与诊断排错</span>
+                <span class="related-title">Ping 延迟极低但网速极卡？一文揭开客户端虚假测速的谎言</span>
+                <span class="related-read-more">阅读深度解析 &rarr;</span>
+              </a>
+            
+              <a href="iperf3-cross-border-throughput-test.html" class="related-card">
+                <span class="related-tag">节点性能测速与诊断排错</span>
+                <span class="related-title">使用专业命令行工具 iperf3 压测机场节点真实持续带宽</span>
+                <span class="related-read-more">阅读深度解析 &rarr;</span>
+              </a>
+            
+              <a href="mtr-traceroute-packet-loss-analysis.html" class="related-card">
+                <span class="related-tag">节点性能测速与诊断排错</span>
+                <span class="related-title">掌握 MTR 路由追踪分析技能：精准定位网络丢包出在哪一跳</span>
+                <span class="related-read-more">阅读深度解析 &rarr;</span>
+              </a>
+            
+          </div>
+        </div>
       </div>
     </div>
     

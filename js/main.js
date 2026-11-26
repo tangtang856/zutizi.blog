@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 2. 交互式分类标签切换 (Tab Filter - 消灭重复堆叠)
+  // 2. 交互式分类标签切换 (Tab Filter)
   const tabButtons = document.querySelectorAll(".filter-tab-btn");
   if (tabButtons.length > 0) {
     tabButtons.forEach(function (btn) {
@@ -68,4 +68,46 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
   }
+
+  // 5. 页面顶部阅读进度条 (Reading Progress Bar)
+  if (!document.getElementById("scroll-progress")) {
+    const progressBar = document.createElement("div");
+    progressBar.id = "scroll-progress";
+    document.body.prepend(progressBar);
+  }
+
+  // 6. 悬浮“回到顶部”按钮 (Floating Back to Top Button)
+  let backToTopBtn = document.getElementById("back-to-top");
+  if (!backToTopBtn) {
+    backToTopBtn = document.createElement("button");
+    backToTopBtn.id = "back-to-top";
+    backToTopBtn.setAttribute("aria-label", "回到顶部");
+    backToTopBtn.title = "回到顶部";
+    backToTopBtn.innerHTML = "↑";
+    document.body.appendChild(backToTopBtn);
+
+    backToTopBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
+
+  // 7. 滚动事件监听 (更新进度条 & 控制回到顶部按钮显隐)
+  window.addEventListener("scroll", function () {
+    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+    const docHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    
+    const pBar = document.getElementById("scroll-progress");
+    if (pBar && docHeight > 0) {
+      const progress = (scrollTop / docHeight) * 100;
+      pBar.style.width = Math.min(100, Math.max(0, progress)) + "%";
+    }
+
+    if (backToTopBtn) {
+      if (scrollTop > 280) {
+        backToTopBtn.classList.add("show");
+      } else {
+        backToTopBtn.classList.remove("show");
+      }
+    }
+  }, { passive: true });
 });

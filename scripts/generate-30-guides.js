@@ -588,6 +588,17 @@ console.log(`🛠️ 开始生成全部 ${GUIDES_DATA.length} 篇进阶教程页
 
 GUIDES_DATA.forEach((g, idx) => {
   const brand = AIRPORTS.find(a => a.id === g.recommendedBrand) || AIRPORTS[0];
+  const prevGuide = idx > 0 ? GUIDES_DATA[idx - 1] : GUIDES_DATA[GUIDES_DATA.length - 1];
+  const nextGuide = idx < GUIDES_DATA.length - 1 ? GUIDES_DATA[idx + 1] : GUIDES_DATA[0];
+
+  // 筛选3篇相关平台或邻近教程
+  let related = GUIDES_DATA.filter(item => item.slug !== g.slug && item.platform.split(" ")[0] === g.platform.split(" ")[0]);
+  if (related.length < 3) {
+    const additional = GUIDES_DATA.filter(item => item.slug !== g.slug && !related.includes(item));
+    related = related.concat(additional);
+  }
+  const relatedThree = related.slice(0, 3);
+
   const content = `
   <div class="container container-narrow">
     <div class="article-header">
@@ -604,6 +615,18 @@ GUIDES_DATA.forEach((g, idx) => {
       <div class="callout-box">
         <div class="callout-title">💡 教程导读与核心要点</div>
         <p>${g.intro}</p>
+      </div>
+
+      <!-- 站内全局便捷导航带 -->
+      <div class="article-hub-ribbon">
+        <span class="article-hub-title">🧭 站内便捷导航：</span>
+        <div class="article-hub-links">
+          <a href="index.html">💻 教程总库</a>
+          <a href="../blog/index.html">📚 深度博客</a>
+          <a href="../ranking/overall.html">👑 综合排行榜</a>
+          <a href="../compare/index.html">⚖️ 机场对比工具</a>
+          <a href="../review/index.html">🚀 14家深度评测</a>
+        </div>
       </div>
 
       <h2>一、详细分步实操流程</h2>
@@ -645,6 +668,32 @@ GUIDES_DATA.forEach((g, idx) => {
       <p>
         返回浏览全部指南：<a href="index.html">使用教程中心</a>；对比更多服务商线路参数：<a href="../compare/index.html">机场横向对比工具</a>；查阅最新速率排行：<a href="../ranking/overall.html">综合排行榜</a>。
       </p>
+
+      <!-- 上一篇 / 下一篇 持续教程游览卡片 -->
+      <div class="article-navigation">
+        <a href="${prevGuide.slug}.html" class="nav-card nav-prev">
+          <span class="nav-direction">← 上一篇实操教程</span>
+          <span class="nav-card-title">${prevGuide.h1}</span>
+        </a>
+        <a href="${nextGuide.slug}.html" class="nav-card nav-next">
+          <span class="nav-direction">下一篇实操教程 →</span>
+          <span class="nav-card-title">${nextGuide.h1}</span>
+        </a>
+      </div>
+
+      <!-- 相关平台教程推荐阅读矩阵 -->
+      <div class="related-section">
+        <div class="related-section-title">📌 平台相关精选教程</div>
+        <div class="related-grid">
+          ${relatedThree.map(rel => `
+            <a href="${rel.slug}.html" class="related-card">
+              <span class="related-tag">${rel.platform}</span>
+              <span class="related-title">${rel.h1}</span>
+              <span class="related-read-more">阅读实操指南 &rarr;</span>
+            </a>
+          `).join("")}
+        </div>
+      </div>
     </div>
   </div>
   `;
