@@ -96,6 +96,12 @@ htmlFiles.forEach(file => {
   if (!ogTitle || !ogDesc) {
     errors.push(`[${relFile}] 缺失必要 OpenGraph (og:title 或 og:description) 标签`);
   }
+
+  // 7. 检查 Keywords Meta
+  const kwMatch = content.match(/<meta\s+name=["']keywords["']\s+content=(["'])(.*?)\1/is);
+  if (!kwMatch || !kwMatch[2].trim()) {
+    errors.push(`[${relFile}] 缺失 <meta name="keywords"> 或内容为空`);
+  }
 });
 
 if (errors.length > 0) {
@@ -103,5 +109,5 @@ if (errors.length > 0) {
   errors.forEach((err, i) => console.error(`  ${i + 1}. ${err}`));
   process.exit(1);
 } else {
-  console.log("✅ 全站 48 个页面 SEO 参数审计通过（Title唯一且非空、单H1、Meta Description健全、Canonical正确）！");
+  console.log(`✅ 全站 ${htmlFiles.length} 个页面 SEO 参数审计通过（Title唯一且非空、单H1、TDK健全、Canonical正确）！`);
 }

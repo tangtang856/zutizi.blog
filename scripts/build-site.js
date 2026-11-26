@@ -91,7 +91,7 @@ function getFooter(relPrefix) {
 }
 
 // 辅助：生成完整HTML页面包装
-function wrapHtml({ title, description, canonicalPath, relPrefix, activeNav, breadcrumbs = [], content, extraScripts = "", schemaJson = null }) {
+function wrapHtml({ title, description, keywords, canonicalPath, relPrefix, activeNav, breadcrumbs = [], content, extraScripts = "", schemaJson = null }) {
   const canonicalUrl = `${BASE_DOMAIN}/${canonicalPath.replace(/^\//, "")}`;
   
   // 面包屑HTML
@@ -116,6 +116,8 @@ function wrapHtml({ title, description, canonicalPath, relPrefix, activeNav, bre
     schemaHtml = `<script type="application/ld+json">\n${JSON.stringify(schemaJson, null, 2)}\n</script>`;
   }
 
+  const defaultKeywords = "机场推荐, 机场节点, 性价比机场, 梯子推荐, vpn, vpn机场, vpn节点, vpn推荐, 科学上网";
+
   return `<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -123,6 +125,7 @@ function wrapHtml({ title, description, canonicalPath, relPrefix, activeNav, bre
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${title}</title>
   <meta name="description" content="${description}">
+  <meta name="keywords" content="${keywords || defaultKeywords}">
   <link rel="canonical" href="${canonicalUrl}">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta property="og:locale" content="zh_CN">
