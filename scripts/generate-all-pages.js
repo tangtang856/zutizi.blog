@@ -382,86 +382,255 @@ console.log("✅ 首页 index.html 更新完成");
 // ==========================================
 ensureDir(path.join(ROOT_DIR, "recommend"));
 
-// 2.1 推荐聚合页 (recommend/index.html)
+// 2.1 推荐聚合页 (recommend/index.html) - 定位为“场景化选型决策中心”，与首页综合测评主题严格区分
+const budgetPicks = AIRPORTS.filter(a => ["breezenet", "feiv", "feimaoyun"].includes(a.id));
+const premiumPicks = AIRPORTS.filter(a => ["laddercloud", "wavenet", "lingmao"].includes(a.id));
+const businessPicks = AIRPORTS.filter(a => ["muguang", "wuyou", "kuajiecloud"].includes(a.id));
+
 const recommendIndexContent = `
 <div class="container">
   <div class="article-header">
-    <h1 class="article-title">2026梯子推荐与翻墙机场全分类指南</h1>
+    <h1 class="article-title">机场选型决策中心：按使用场景与实际预算精准匹配</h1>
     <div class="article-meta">
+      <span>定位：科学上网需求精准匹配决策系统</span>
+      <span>涵盖分类：6 大核心业务场景</span>
+      <span>数据依据：三大运营商千兆晚高峰实测</span>
       <span>更新时间：2026年11月26日</span>
-      <span>专题策划：竹梯子编辑部</span>
-      <span>收录品牌：14 家精选实测机场</span>
     </div>
   </div>
 
-  <div class="callout-box">
-    <div class="callout-title">📌 专题导读：为什么按场景挑选远胜于盲目跟风？</div>
+  <div class="callout-box callout-success">
+    <div class="callout-title">💡 选型决策法则：没有最好的机场，只有最切合你实际业务场景的节点！</div>
     <p>
-      不同翻墙场景对<strong>机场节点</strong>的要求截然不同：玩外服游戏与跨国会议需要极致的低延迟与零丢包（推荐选择浪网、灵猫、闪跃等IPLC专线）；观看Netflix与YouTube 4K需要充沛的带宽与住宅解锁能力；而查阅文献的轻度用户则最需要低门槛的<strong>性价比机场</strong>（如飞V、飞猫云、微风网络）。
+      不同用户对<strong>机场节点</strong>与<strong>梯子推荐</strong>的诉求大相径庭：玩外服竞技游戏或跨国远程会议，核心在于极致的低延迟与绝对零丢包（推荐选择梯子云、浪网等纯正IPLC内网专线）；观看 4K 流媒体需要持续稳定的大带宽；使用 ChatGPT 4o 与 Claude 3.5 必须依赖纯净双ISP住宅IP；而仅用于查阅文献的轻度用户，则应优先挑选几元钱的<strong>性价比机场</strong>（如飞V、微风网络、飞猫云）。切忌盲目跟风花费数百元购买并不契合自身需求的套餐。
     </p>
+  </div>
+
+  <!-- 一、六大场景化专题快速通道 -->
+  <div class="section-header" style="text-align:left; margin:2.5rem 0 1.25rem;">
+    <h2 class="section-title">一、六大核心使用场景精准决策通道</h2>
+    <p class="section-desc">根据您当前最核心的上网用途，点击下方专属专题获取深度评测与选型指南：</p>
   </div>
 
   <div class="grid-3" style="margin-bottom:2.5rem;">
     <a href="budget.html" class="category-box">
       <div class="cat-icon">💰</div>
       <div class="cat-info">
-        <h3>便宜低预算机场推荐</h3>
+        <h3>便宜低预算专区 (¥4.9起)</h3>
         <p>飞V ¥4.9、飞猫云 ¥7、微风网络 ¥8，学生党与轻量用户的省钱攻略。</p>
       </div>
     </a>
     <a href="premium.html" class="category-box">
       <div class="cat-icon">🚀</div>
       <div class="cat-info">
-        <h3>高端IPLC专线机场推荐</h3>
-        <p>微风网络、灵猫、隐形人、闪跃等物理专线，晚高峰超低延迟。</p>
+        <h3>高端IPLC/IEPL专线专区</h3>
+        <p>梯子云、微风网络、浪网等物理专线，不过公网出口，晚高峰零丢包。</p>
       </div>
     </a>
     <a href="beginner.html" class="category-box">
       <div class="cat-icon">🔰</div>
       <div class="cat-info">
-        <h3>新手友好一键入门推荐</h3>
-        <p>零门槛快速导入订阅，详尽图文配置说明，告别繁琐设置报错。</p>
+        <h3>小白零门槛入门专区</h3>
+        <p>一键导入订阅，支持 Windows / Mac / iOS / Android 傻瓜式客户端配置。</p>
       </div>
     </a>
     <a href="stable.html" class="category-box">
       <div class="cat-icon">🛡️</div>
       <div class="cat-info">
-        <h3>高稳定性机场节点推荐</h3>
-        <p>浪网、灵猫、暮光网络等面向跨国办公开发，晚高峰99.9%抗封锁。</p>
+        <h3>晚高峰稳定与抗封锁专区</h3>
+        <p>暮光网络、灵猫、无忧链接等面向商务办公，敏感时期依然坚挺稳定。</p>
       </div>
     </a>
     <a href="ai.html" class="category-box">
       <div class="cat-icon">🤖</div>
       <div class="cat-info">
-        <h3>ChatGPT & AI生产力专用</h3>
-        <p>原生纯净住宅IP池，解决ChatGPT 4o与Claude登录封控与降智难题。</p>
+        <h3>ChatGPT & AI生产力专区</h3>
+        <p>海外双ISP原生住宅IP，杜绝 ChatGPT 4o 与 Claude 3.5 封号与降智风控。</p>
       </div>
     </a>
     <a href="streaming.html" class="category-box">
       <div class="cat-icon">🎬</div>
       <div class="cat-info">
-        <h3>流媒体4K秒开专用推荐</h3>
-        <p>全区解锁Netflix、Disney+、YouTube Premium，千兆带宽畅享超清画质。</p>
+        <h3>Netflix & 4K流媒体专区</h3>
+        <p>全区解锁 Netflix 4K、Disney+、YouTube Premium，千兆带宽秒开不缓冲。</p>
       </div>
     </a>
   </div>
 
-  <div class="section-header">
-    <h2 class="section-title">全量 14 家精选机场推荐名录</h2>
-    <p class="section-desc">以下服务商均提取自官方评测库真实数据，并提供直达官网链接与优惠折扣：</p>
+  <!-- 二、六大场景选型速查矩阵表 -->
+  <div class="section-header" style="text-align:left; margin:2.5rem 0 1.25rem;">
+    <h2 class="section-title">二、6大使用场景技术指标与品牌匹配速查矩阵</h2>
+    <p class="section-desc">直观对比不同场景下的带宽、延迟与推荐服务商：</p>
   </div>
-  <div class="grid-3" style="margin-bottom:3rem;">
-    ${AIRPORTS.map((a, idx) => generateAirportCard(a, "../", idx)).join("")}
+
+  <div class="table-wrapper" style="margin-bottom:3rem;">
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th>使用场景与业务诉求</th>
+          <th>核心技术考量</th>
+          <th>建议预算与流量</th>
+          <th>首选推荐服务商</th>
+          <th>专属专题</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>💰 极低预算 / 学生党 / 备用防失联</strong></td>
+          <td>每GB单价低于¥0.05，坚持月付灵活续费</td>
+          <td>¥4.9 ~ ¥8/月 (100~200GB)</td>
+          <td><strong>飞V、微风网络、飞猫云</strong></td>
+          <td><a href="budget.html" class="btn btn-outline btn-sm">低价专题 &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><strong>🎬 4K/8K 追剧观影 (Netflix/YouTube)</strong></td>
+          <td>晚高峰千兆带宽跑满，全区流媒体原生解锁</td>
+          <td>¥8 ~ ¥30/月 (200~500GB)</td>
+          <td><strong>微风网络、浪网、灵猫</strong></td>
+          <td><a href="streaming.html" class="btn btn-outline btn-sm">流媒体专题 &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><strong>⚡ 外服电竞游戏 (Steam/Switch/Apex)</strong></td>
+          <td>UDP转发优化，抖动标准差&lt;1ms，零丢包</td>
+          <td>¥20 ~ ¥25/月 (100~150GB)</td>
+          <td><strong>闪跃、梯子云、微风网络</strong></td>
+          <td><a href="premium.html" class="btn btn-outline btn-sm">专线专题 &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><strong>🤖 ChatGPT 4o / Claude 3.5 AI 研发</strong></td>
+          <td>纯净双ISP住宅IP落地，低欺诈分防封控</td>
+          <td>¥20 ~ ¥25/月 (100~150GB)</td>
+          <td><strong>灵猫、微风网络、隐形人</strong></td>
+          <td><a href="ai.html" class="btn btn-outline btn-sm">AI专题 &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><strong>💼 商务跨国办公 / Zoom视频会议</strong></td>
+          <td>物理专线SLA保障，多设备并发在线</td>
+          <td>¥20 ~ ¥30/月 (120~200GB)</td>
+          <td><strong>暮光网络、梯子云、无忧链接</strong></td>
+          <td><a href="stable.html" class="btn btn-outline btn-sm">稳定专题 &rarr;</a></td>
+        </tr>
+        <tr>
+          <td><strong>🛍️ 跨境电商 (Amazon/TikTok/Shopify)</strong></td>
+          <td>商用纯净静态环境，防多店铺关联封禁</td>
+          <td>¥20 ~ ¥40/月 (100~300GB)</td>
+          <td><strong>跨界、隐形人、灵动云</strong></td>
+          <td><a href="premium.html" class="btn btn-outline btn-sm">专线专题 &rarr;</a></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
+
+  <!-- 三、四步科学选型法则 -->
+  <div class="section-header" style="text-align:left; margin:2.5rem 0 1.25rem;">
+    <h2 class="section-title">三、4 步科学上网选型决策法则</h2>
+    <p class="section-desc">遵循这四项准则，帮助您避开 90% 的不良服务商与隐性消费陷阱：</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.25rem; margin-bottom:3rem;">
+    <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem;">
+      <div style="font-size:1.5rem; font-weight:800; color:var(--primary); margin-bottom:0.5rem;">01</div>
+      <h3 style="font-size:1.05rem; margin-bottom:0.4rem;">量化真实月度流量</h3>
+      <p style="font-size:0.88rem; color:var(--text-main); line-height:1.6; margin:0;">
+        查阅邮件与文字办公每月仅需 20-50GB；观看 4K 流媒体每天 2 小时约消耗 150-250GB/月。根据实际用量挑选，切忌为用不完的超大流量盲目买单。
+      </p>
+    </div>
+    <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem;">
+      <div style="font-size:1.5rem; font-weight:800; color:var(--primary); margin-bottom:0.5rem;">02</div>
+      <h3 style="font-size:1.05rem; margin-bottom:0.4rem;">识别底层线路拓扑</h3>
+      <p style="font-size:0.88rem; color:var(--text-main); line-height:1.6; margin:0;">
+        普通直连中继晚高峰容易丢包；若对稳定性有严苛要求（如炒股、跨国会议），必须挑选拥有真实 IPLC/IEPL 内网物理专线的服务商。
+      </p>
+    </div>
+    <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem;">
+      <div style="font-size:1.5rem; font-weight:800; color:var(--primary); margin-bottom:0.5rem;">03</div>
+      <h3 style="font-size:1.05rem; margin-bottom:0.4rem;">核查落地住宅IP资质</h3>
+      <p style="font-size:0.88rem; color:var(--text-main); line-height:1.6; margin:0;">
+        使用 ChatGPT 4o、Claude 或跨境电商管理时，公用机房 IP 容易被风控标记。认准拥有原生双 ISP 住宅 IP 的节点，能省去大量人机验证烦恼。
+      </p>
+    </div>
+    <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:1.25rem;">
+      <div style="font-size:1.5rem; font-weight:800; color:var(--primary); margin-bottom:0.5rem;">04</div>
+      <h3 style="font-size:1.05rem; margin-bottom:0.4rem;">恪守“首月月付”铁律</h3>
+      <p style="font-size:0.88rem; color:var(--text-main); line-height:1.6; margin:0;">
+        新服务商一律先按月付费试用，实地测试本地运营商（电信/联通/移动）与节点的契合度，确认晚高峰无卡顿后再考虑长期订阅。
+      </p>
+    </div>
+  </div>
+
+  <!-- 四、典型场景代表性品牌精选推荐 -->
+  <div class="section-header" style="text-align:left; margin:2.5rem 0 1.25rem;">
+    <h2 class="section-title">四、典型场景代表品牌精选卡片</h2>
+    <p class="section-desc">精选三大代表性需求梯队，每个梯队为您精挑经过实测验证的标杆服务商：</p>
+  </div>
+
+  <!-- 梯队 A：极致性价比 -->
+  <div style="margin-bottom:2.5rem;">
+    <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; border-left:4px solid var(--success); padding-left:0.6rem;">
+      <h3 style="font-size:1.2rem; font-weight:800; color:var(--secondary); margin:0;">🏆 极致平价性价比梯队 (¥4.9 ~ ¥8/月起)</h3>
+      <span style="font-size:0.82rem; color:var(--text-muted);">适合学生党、轻度备用与大流量流媒体</span>
+    </div>
+    <div class="grid-3">
+      ${budgetPicks.map((a, idx) => generateAirportCard(a, "../", idx)).join("")}
+    </div>
+  </div>
+
+  <!-- 梯队 B：高端物理专线与极客发烧 -->
+  <div style="margin-bottom:2.5rem;">
+    <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; border-left:4px solid var(--primary); padding-left:0.6rem;">
+      <h3 style="font-size:1.2rem; font-weight:800; color:var(--secondary); margin:0;">👑 高端物理专线与极客发烧梯队 (晚高峰绝对稳定)</h3>
+      <span style="font-size:0.82rem; color:var(--text-muted);">适合追求万兆满速、超低抖动外服游戏与纯净住宅IP</span>
+    </div>
+    <div class="grid-3">
+      ${premiumPicks.map((a, idx) => generateAirportCard(a, "../", idx)).join("")}
+    </div>
+  </div>
+
+  <!-- 梯队 C：商务办公与企业级出海 -->
+  <div style="margin-bottom:3rem;">
+    <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1rem; border-left:4px solid var(--secondary); padding-left:0.6rem;">
+      <h3 style="font-size:1.2rem; font-weight:800; color:var(--secondary); margin:0;">💼 商务办公、跨境电商与抗封锁梯队</h3>
+      <span style="font-size:0.82rem; color:var(--text-muted);">适合外贸多店铺管理、跨国Zoom会议与特殊时期坚挺可用</span>
+    </div>
+    <div class="grid-3">
+      ${businessPicks.map((a, idx) => generateAirportCard(a, "../", idx)).join("")}
+    </div>
+  </div>
+
+  <!-- 五、选型决策 FAQ -->
+  <div class="section-header" style="text-align:left; margin:2.5rem 0 1.25rem;">
+    <h2 class="section-title">五、机场选型常见问题答疑 (FAQ)</h2>
+  </div>
+
+  ${renderFaqList([
+    {
+      q: "为什么按使用场景挑选，远比单纯看综合评分更重要？",
+      a: "因为每个用户的核心痛点完全不同：游戏玩家需要毫秒级低延迟与零丢包（需要专线），看视频需要下行大带宽（需要高带宽节点），玩AI大模型需要纯净住宅IP。如果需求不匹配，买再高评分的机场也会感到不好用。"
+    },
+    {
+      q: "价格越贵的专线机场，速度就一定越快吗？",
+      a: "不一定。昂贵的物理专线主要是保障晚高峰的“稳定性”与“低丢包”，并不代表单线程下载速度无限大。对于普通浏览网页而言，8元左右的高性价比机场与30元的专线机场体验差异并不明显。"
+    },
+    {
+      q: "如果我在家使用中国移动宽带，在挑选机场时要注意什么？",
+      a: "中国移动宽带跨网访问电信或联通机房时容易出现较高延迟，建议优选在华南（广州/深圳）拥有移动直连BGP入口的服务商，或者走全IEPL物理专线的品牌。"
+    },
+    {
+      q: "如何查看全部 14 家品牌的详细测速数据与横向对比？",
+      a: "您可以访问我们的 <a href='../ranking/overall.html'>综合排行榜</a> 查看晚高峰丢包与速率排名，或使用 <a href='../compare/index.html'>机场横向对比工具</a> 自选 2~4 家服务商进行技术参数逐项比对。"
+    }
+  ])}
 </div>
 `;
+
 fs.writeFileSync(path.join(ROOT_DIR, "recommend", "index.html"), wrapHtml({
-  title: "2026梯子推荐与翻墙机场节点全分类指南 - 竹梯子博客",
-  description: "2026年翻墙梯子推荐与VPN机场节点分类精选。涵盖微风网络、灵猫、飞猫云、飞V、浪网等14家精选品牌，按便宜平价、高端专线、新手入门分类助您快速选购。",
+  title: "机场选型决策中心 - 6大使用场景与预算精准匹配指南 - 竹梯子博客",
+  description: "竹梯子博客选型决策智选中心。梳理便宜平价、IPLC专线、小白入门、晚高峰抗封锁、AI科研与流媒体等6大核心使用场景。提供场景化速查对比矩阵与4步科学选型法则，助您精准锁定最适合的科学上网服务商。",
+  keywords: "机场选型, 机场推荐, 梯子推荐, 性价比机场, 专线机场, 便宜机场, 翻墙机场分类, vpn推荐, 科学上网决策",
   canonicalPath: "recommend/index.html",
   relPrefix: "../",
   activeNav: "recommend",
-  breadcrumbs: [{ name: "机场推荐专题" }],
+  breadcrumbs: [{ name: "选型决策中心" }],
   content: recommendIndexContent
 }), "utf-8");
 
