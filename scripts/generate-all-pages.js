@@ -351,7 +351,7 @@ const homeContent = `
 
 
 fs.writeFileSync(path.join(ROOT_DIR, "index.html"), wrapHtml({
-  title: "2026专业机场推荐与梯子节点测评指南 - 竹梯子博客",
+  title: "2026专业机场推荐与梯子节点测评指南 - 租梯子博客",
   description: "2026专业机场推荐与梯子推荐门户。基于真实测速环境深度测评稳定机场节点、高性价比机场、VPN机场与翻墙节点，提供Windows/Mac/iOS/Android完整配置教程与横向对比工具。",
   canonicalPath: "",
   relPrefix: "",
@@ -365,14 +365,14 @@ fs.writeFileSync(path.join(ROOT_DIR, "index.html"), wrapHtml({
         "@type": "WebSite",
         "@id": `${BASE_DOMAIN}/#website`,
         "url": `${BASE_DOMAIN}/`,
-        "name": "竹梯子博客",
+        "name": "租梯子博客",
         "description": "专业中文机场节点推荐与Bing SEO资讯系统",
         "inLanguage": "zh-CN"
       },
       {
         "@type": "Organization",
         "@id": `${BASE_DOMAIN}/#organization`,
-        "name": "竹梯子博客评测团队",
+        "name": "租梯子博客评测团队",
         "url": `${BASE_DOMAIN}/`,
         "logo": `${BASE_DOMAIN}/logo.png`
       }
@@ -628,8 +628,8 @@ const recommendIndexContent = `
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, "recommend", "index.html"), wrapHtml({
-  title: "机场选型决策中心 - 6大使用场景与预算精准匹配指南 - 竹梯子博客",
-  description: "竹梯子博客选型决策智选中心。梳理便宜平价、IPLC专线、小白入门、晚高峰抗封锁、AI科研与流媒体等6大核心使用场景。提供场景化速查对比矩阵与4步科学选型法则，助您精准锁定最适合的科学上网服务商。",
+  title: "机场选型决策中心 - 6大使用场景与预算精准匹配指南 - 租梯子博客",
+  description: "租梯子博客选型决策智选中心。梳理便宜平价、IPLC专线、小白入门、晚高峰抗封锁、AI科研与流媒体等6大核心使用场景。提供场景化速查对比矩阵与4步科学选型法则，助您精准锁定最适合的科学上网服务商。",
   keywords: "机场选型, 机场推荐, 梯子推荐, 性价比机场, 专线机场, 便宜机场, 翻墙机场分类, vpn推荐, 科学上网决策",
   canonicalPath: "recommend/index.html",
   relPrefix: "../",
@@ -729,7 +729,7 @@ const budgetContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "recommend", "budget.html"), wrapHtml({
-  title: "便宜低价机场推荐 - 月付10元以下高性价比节点盘点 - 竹梯子博客",
+  title: "便宜低价机场推荐 - 月付10元以下高性价比节点盘点 - 租梯子博客",
   description: "便宜机场推荐与平价低预算梯子盘点。详细梳理飞V、微风网络、飞猫云、萤火虫等月付10元以内的性价比机场，提供每GB真实单价测算与防坑指南。",
   canonicalPath: "recommend/budget.html",
   relPrefix: "../",
@@ -825,7 +825,7 @@ const premiumContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "recommend", "premium.html"), wrapHtml({
-  title: "高端专线机场推荐 - 2026旗舰IPLC内网专线节点精选 - 竹梯子博客",
+  title: "高端专线机场推荐 - 2026旗舰IPLC内网专线节点精选 - 租梯子博客",
   description: "高端专线机场推荐与IPLC专线梯子精选。深度测评微风网络、浪网、灵猫、闪跃、隐形人等端到端物理专线与低延迟晚高峰不卡顿节点，外贸跨境与企业办公优选。",
   canonicalPath: "recommend/premium.html",
   relPrefix: "../",
@@ -905,7 +905,7 @@ const beginnerContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "recommend", "beginner.html"), wrapHtml({
-  title: "新手VPN推荐与机场节点配置入门指南 - 零门槛一键上手 - 竹梯子博客",
+  title: "新手VPN推荐与机场节点配置入门指南 - 零门槛一键上手 - 租梯子博客",
   description: "新手翻墙VPN推荐与机场节点入门配置教程。针对零基础用户推荐微风网络、飞猫云、飞V等一键导入、全平台兼容的稳定梯子节点。",
   canonicalPath: "recommend/beginner.html",
   relPrefix: "../",
@@ -987,7 +987,7 @@ const stableContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "recommend", "stable.html"), wrapHtml({
-  title: "稳定机场节点推荐 - 2026高速IPLC专线节点选择指南 - 竹梯子博客",
+  title: "稳定机场节点推荐 - 2026高速IPLC专线节点选择指南 - 租梯子博客",
   description: "高稳定性机场节点推荐与抗封锁梯子精选。重点测评浪网、灵猫、微风网络、隐形人等晚高峰零卡顿物理专线线路。",
   canonicalPath: "recommend/stable.html",
   relPrefix: "../",
@@ -1060,7 +1060,7 @@ const aiContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "recommend", "ai.html"), wrapHtml({
-  title: "AI工具与ChatGPT专用机场推荐 - 原生IP解锁不降智 - 竹梯子博客",
+  title: "AI工具与ChatGPT专用机场推荐 - 原生IP解锁不降智 - 租梯子博客",
   description: "ChatGPT与AI工具专用机场推荐。盘点灵猫、浪网、微风网络等原生住宅IP节点，完美解决OpenAI、Claude 3.5与Google Gemini网络拦截。",
   canonicalPath: "recommend/ai.html",
   relPrefix: "../",
@@ -1133,7 +1133,7 @@ const streamingContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "recommend", "streaming.html"), wrapHtml({
-  title: "Netflix/Disney+流媒体解锁机场推荐 - 4K秒开节点精选 - 竹梯子博客",
+  title: "Netflix/Disney+流媒体解锁机场推荐 - 4K秒开节点精选 - 租梯子博客",
   description: "Netflix与Disney+流媒体4K解锁机场推荐。精选浪网、微风网络、灵猫等大带宽、低延迟梯子节点，支持YouTube 4K秒开与非自制剧解锁。",
   canonicalPath: "recommend/streaming.html",
   relPrefix: "../",
@@ -1162,7 +1162,7 @@ const overallRankingContent = `
   <div class="callout-box">
     <div class="callout-title">📊 评测规范与排榜声明：</div>
     <p>
-      本综合排行榜由竹梯子博客基于 <code>https://jiediantuijian.shop</code> 官方测速数据与多省份宽带实机拨测汇总。排序严格依照客观网络指标与实际资费，严禁买榜。
+      本综合排行榜由租梯子博客基于 <code>https://jiediantuijian.shop</code> 官方测速数据与多省份宽带实机拨测汇总。排序严格依照客观网络指标与实际资费，严禁买榜。
     </p>
   </div>
 
@@ -1201,7 +1201,7 @@ const overallRankingContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "ranking", "overall.html"), wrapHtml({
-  title: "2026综合VPN机场推荐排行榜 - 节点速度与稳定性评测 - 竹梯子博客",
+  title: "2026综合VPN机场推荐排行榜 - 节点速度与稳定性评测 - 租梯子博客",
   description: "2026综合VPN机场推荐排行榜。深度评测微风网络、浪网、灵猫、飞猫云、闪跃等14家核心品牌，提供客观权威的梯子节点选购指南。",
   canonicalPath: "ranking/overall.html",
   relPrefix: "../",
@@ -1264,7 +1264,7 @@ const valueRankingContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "ranking", "value.html"), wrapHtml({
-  title: "性价比机场排行榜 - 2026低成本高流量机场节点实测推荐 - 竹梯子博客",
+  title: "性价比机场排行榜 - 2026低成本高流量机场节点实测推荐 - 租梯子博客",
   description: "性价比机场排行榜。通过严格的每GB实际单价公式对14家品牌套餐进行降序测算，微风网络、飞猫云、飞V每GB单价低至0.04元。",
   canonicalPath: "ranking/value.html",
   relPrefix: "../",
@@ -1322,7 +1322,7 @@ const budgetRankingContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "ranking", "budget.html"), wrapHtml({
-  title: "低预算平价机场排行榜 - 便宜好用的备用与轻度翻墙节点 - 竹梯子博客",
+  title: "低预算平价机场排行榜 - 便宜好用的备用与轻度翻墙节点 - 租梯子博客",
   description: "低预算平价机场排行榜。评选月付10元以内的超高性价比梯子，飞V、飞猫云、微风网络、萤火虫实测盘点。",
   canonicalPath: "ranking/budget.html",
   relPrefix: "../",
@@ -1378,7 +1378,7 @@ const stableRankingContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "ranking", "stable.html"), wrapHtml({
-  title: "稳定翻墙机场排行榜 - 晚高峰不卡顿抗封锁节点盘点 - 竹梯子博客",
+  title: "稳定翻墙机场排行榜 - 晚高峰不卡顿抗封锁节点盘点 - 租梯子博客",
   description: "高稳定翻墙机场排行榜。实测浪网、灵猫、微风网络、闪跃、隐形人等晚高峰超低丢包率与抗干扰专线节点。",
   canonicalPath: "ranking/stable.html",
   relPrefix: "../",
@@ -1427,7 +1427,7 @@ const airportIndexContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "airport", "index.html"), wrapHtml({
-  title: "翻墙机场数据库与品牌参数档案 - 竹梯子博客",
+  title: "翻墙机场数据库与品牌参数档案 - 租梯子博客",
   description: "专业翻墙机场数据库与品牌资料档案。完整记录14家核心品牌套餐资费、节点协议、覆盖国家、设备限制与实测数据来源。",
   keywords: "翻墙机场数据库, 机场资料库, 机场参数档案, 机场价格表, 节点协议, 设备限制, 翻墙梯子推荐",
   canonicalPath: "airport/index.html",
@@ -1470,7 +1470,7 @@ const reviewIndexContent = `
 </div>
 `;
 fs.writeFileSync(path.join(ROOT_DIR, "review", "index.html"), wrapHtml({
-  title: "独立机场深度评测报告汇总 - 竹梯子博客",
+  title: "独立机场深度评测报告汇总 - 租梯子博客",
   description: "中文翻墙机场与梯子独立深度评测中心。客观呈现微风网络、灵猫、飞猫云、浪网等14家核心机场真实测速延迟与流媒体解锁能力。",
   keywords: "独立机场评测, 机场深度评测, 梯子评测, 晚高峰测速, 机场套餐价格, 微风网络, 暮光网络, 飞猫云, 灵猫, 浪网",
   canonicalPath: "review/index.html",
@@ -1689,7 +1689,7 @@ AIRPORTS.forEach((a, idx) => {
   </div>
   `;
 
-  const airportTitle = `${a.name}怎么样？官方套餐价格、流量配额、节点协议与参数档案 - 竹梯子博客`;
+  const airportTitle = `${a.name}怎么样？官方套餐价格、流量配额、节点协议与参数档案 - 租梯子博客`;
   const airportDesc = `${a.name}怎么样？本页系统收录${a.name}官方最新套餐价格表（¥${a.startingPrice.toFixed(Number.isInteger(a.startingPrice) ? 0 : 1)}起/月）、月度流量配额（${a.plans[0].trafficGb}GB起）、节点覆盖地区（${a.regions.join("、")}）及协议支持。提供每GB单价折算、设备并发限制（${a.deviceLimit}）与实测数据核验档案。`;
   const airportKeywords = `${a.name}, ${a.name}怎么样, ${a.name}如何, ${a.name}价格, ${a.name}流量, ${a.name}节点, ${a.name}测速, ${a.name}官网, ${a.name}参数, 翻墙机场数据库, 梯子推荐, 机场推荐`;
 
@@ -1713,7 +1713,7 @@ AIRPORTS.forEach((a, idx) => {
         <span>发布日期：2026年11月26日</span>
         <span>最近核验：${a.lastVerified}</span>
         <span>实测环境：中国三大运营商千兆宽带实地拨测</span>
-        <span>评测机构：竹梯子独立技术实验室</span>
+        <span>评测机构：租梯子独立技术实验室</span>
       </div>
     </div>
 
@@ -1977,7 +1977,7 @@ AIRPORTS.forEach((a, idx) => {
   </div>
   `;
 
-  const reviewTitle = `${a.name}如何？2026套餐价格、月度流量、节点线路与晚高峰测速全方位评测 - 竹梯子博客`;
+  const reviewTitle = `${a.name}如何？2026套餐价格、月度流量、节点线路与晚高峰测速全方位评测 - 租梯子博客`;
   const reviewDesc = `${a.name}如何？${a.name}官方最新起步套餐¥${a.startingPrice.toFixed(Number.isInteger(a.startingPrice) ? 0 : 1)}/${a.plans[0].billing}，提供${a.plans[0].trafficGb}GB月度流量。全节点覆盖${a.regions.slice(0, 4).join("、")}等地区，支持${a.protocols.join("/")}协议及多设备并发（${a.deviceLimit}）。经中国电信、联通、移动千兆实测，晚高峰4K秒开、平均延迟低至20ms。提供专属优惠券${a.coupon ? a.coupon : '及官方通道'}与客观选购避坑指南。`;
   const reviewKeywords = `${a.name}, ${a.name}如何, ${a.name}怎么样, ${a.name}机场, ${a.name}评测, ${a.name}套餐价格, ${a.name}流量, ${a.name}节点, ${a.name}测速, 机场推荐, 梯子推荐, vpn推荐, vpn机场, 性价比机场, 科学上网`;
 
@@ -2004,7 +2004,7 @@ AIRPORTS.forEach((a, idx) => {
       },
       "author": {
         "@type": "Organization",
-        "name": "竹梯子博客评测团队"
+        "name": "租梯子博客评测团队"
       },
       "datePublished": "2026-11-26",
       "dateModified": a.lastVerified

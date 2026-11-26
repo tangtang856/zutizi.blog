@@ -39,7 +39,7 @@ htmlFiles.forEach(file => {
     } else if (relFile.startsWith("compare/")) {
       kw = "机场横向对比, 梯子测速对比, 节点价格比较, 每GB单价测算, 翻墙机场比较工具";
     } else if (["about.html", "editorial-policy.html", "contact.html", "privacy-policy.html", "disclaimer.html"].includes(relFile)) {
-      kw = "竹梯子博客, 客观中立评测, 编辑部政策, 隐私声明, 联系合作, 机场推荐标准";
+      kw = "租梯子博客, 客观中立评测, 编辑部政策, 隐私声明, 联系合作, 机场推荐标准";
     }
 
     // 在 <meta name="description" ...> 后面插入

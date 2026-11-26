@@ -12,7 +12,7 @@ const GUIDES_DATA = [
   // --- Windows 篇 (6篇) ---
   {
     slug: "windows-sing-box-tutorial",
-    title: "Sing-box Windows客户端安装与通用订阅导入指南 - 竹梯子博客",
+    title: "Sing-box Windows客户端安装与通用订阅导入指南 - 租梯子博客",
     h1: "Sing-box Windows客户端快速上手与配置教程",
     description: "Sing-box Windows电脑客户端新手教程。详解新一代通用代理核心Sing-box安装、订阅导入、分流规则与Tun虚拟网卡全流量接管配置。",
     platform: "Windows 10 / 11",
@@ -32,7 +32,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "windows-v2rayn-setup",
-    title: "v2rayN Windows经典客户端核心配置与节点测速教程 - 竹梯子博客",
+    title: "v2rayN Windows经典客户端核心配置与节点测速教程 - 租梯子博客",
     h1: "v2rayN Windows经典客户端完整使用指南",
     description: "v2rayN Windows客户端教程。详细图解v2rayN订阅添加、Xray/V2Ray核心更新、批量测速与PAC/系统代理模式切换技巧。",
     platform: "Windows 7 / 10 / 11",
@@ -51,7 +51,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "windows-clash-meta-tun-mode",
-    title: "Clash Verge开启Tun虚拟网卡全流量接管与游戏加速教程 - 竹梯子博客",
+    title: "Clash Verge开启Tun虚拟网卡全流量接管与游戏加速教程 - 租梯子博客",
     h1: "Clash Verge Rev开启Tun模式全流量代理教程",
     description: "Windows电脑Clash Verge开启Tun模式教程。彻底解决命令行cmd、PowerShell、Git以及Steam/Uplay外服游戏不走代理问题。",
     platform: "Windows 10 / 11",
@@ -70,7 +70,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "windows-sub-store-config",
-    title: "Sub-Store在Windows环境下的订阅转换与规则管理配置 - 竹梯子博客",
+    title: "Sub-Store在Windows环境下的订阅转换与规则管理配置 - 租梯子博客",
     h1: "Sub-Store Windows高级订阅管理与去广告配置实战",
     description: "Sub-Store订阅管理工具配置教程。教你在Windows电脑上聚合多个机场节点、自定义重命名、过滤无效节点并自动同步至客户端。",
     platform: "Windows / 跨平台",
@@ -89,7 +89,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "windows-edge-chrome-switchyomega",
-    title: "Chrome/Edge浏览器配合SwitchyOmega实现网页级精准分流配置 - 竹梯子博客",
+    title: "Chrome/Edge浏览器配合SwitchyOmega实现网页级精准分流配置 - 租梯子博客",
     h1: "Chrome/Edge配置SwitchyOmega实现独立网页分流教程",
     description: "浏览器插件SwitchyOmega配置教程。在Windows无需开启全局代理，仅让指定浏览器或标签页走机场节点的高级技巧。",
     platform: "Chrome / Edge 浏览器",
@@ -108,7 +108,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "windows-client-error-troubleshooting",
-    title: "Windows翻墙客户端常见报错排查与网络修复全手册 - 竹梯子博客",
+    title: "Windows翻墙客户端常见报错排查与网络修复全手册 - 租梯子博客",
     h1: "Windows翻墙网络报错与无法上网故障排查全手册",
     description: "Windows电脑翻墙故障解决指南。系统代理残留修复、无法连接网络但QQ能上、SSL证书错误及端口冲突排查实战。",
     platform: "Windows 全系列",
@@ -129,7 +129,7 @@ const GUIDES_DATA = [
   // --- Android 篇 (6篇) ---
   {
     slug: "android-sing-box-guide",
-    title: "Sing-box Android手机客户端订阅添加与开机自启教程 - 竹梯子博客",
+    title: "Sing-box Android手机客户端订阅添加与开机自启教程 - 租梯子博客",
     h1: "Sing-box Android安卓客户端配置与使用指南",
     description: "Sing-box安卓手机版使用教程。图解通用订阅导入、分流配置、常驻后台保活与耗电优化设置全流程。",
     platform: "Android 8.0 - 15",
@@ -148,7 +148,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "android-v2rayng-tutorial",
-    title: "v2rayNG手机客户端配置与分应用代理技巧 - 竹梯子博客",
+    title: "v2rayNG手机客户端配置与分应用代理技巧 - 租梯子博客",
     h1: "v2rayNG安卓客户端订阅配置与分应用代理实战",
     description: "v2rayNG手机版教程。详细讲解订阅链接批量导入、按应用单独开启翻墙、绕过局域网与碎片化分流优化技巧。",
     platform: "Android 全机型",
@@ -167,7 +167,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "android-battery-optimization",
-    title: "小米/华为/OPPO/vivo手机后台防杀与电池优化保活设置 - 竹梯子博客",
+    title: "小米/华为/OPPO/vivo手机后台防杀与电池优化保活设置 - 租梯子博客",
     h1: "国内主流安卓手机翻墙客户端后台防杀保活全攻略",
     description: "安卓手机后台杀客户端解决办法。详解小米澎湃OS、华为鸿蒙、OPPO ColorOS、vivo OriginOS防止Clash后台退出的终极设置。",
     platform: "HyperOS / HarmonyOS / ColorOS / OriginOS",
@@ -186,7 +186,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "android-tv-box-clash",
-    title: "智能电视盒与Android TV安装Clash观看4K海外流媒体教程 - 竹梯子博客",
+    title: "智能电视盒与Android TV安装Clash观看4K海外流媒体教程 - 租梯子博客",
     h1: "Android TV智能电视与电视盒子安装Clash看4K教程",
     description: "智能电视翻墙看Netflix/YouTube 4K教程。图解小米盒子、外贸电视盒子安装Clash for Android及遥控器适配全流程。",
     platform: "Android TV / Google TV / 电视盒子",
@@ -205,7 +205,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "android-surfboard-tutorial",
-    title: "Surfboard冲浪板安卓客户端订阅导入与托管配置 - 竹梯子博客",
+    title: "Surfboard冲浪板安卓客户端订阅导入与托管配置 - 租梯子博客",
     h1: "Surfboard冲浪板安卓客户端配置与分流教程",
     description: "Surfboard冲浪板使用指南。全面兼容Surge配置语法的安卓轻量级代理工具使用、测速与订阅托管配置教学。",
     platform: "Android",
@@ -224,7 +224,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "android-dual-sim-bypass",
-    title: "安卓双卡双待网络下代理连接与分流优化方案 - 竹梯子博客",
+    title: "安卓双卡双待网络下代理连接与分流优化方案 - 租梯子博客",
     h1: "安卓手机双卡环境下网络代理稳定性优化实战",
     description: "双卡安卓手机翻墙掉线排查。移动/电信/联通双卡数据切换导致VPN断流的解决办法与DNS策略调优。",
     platform: "Android 双卡机型",
@@ -244,7 +244,7 @@ const GUIDES_DATA = [
   // --- iOS / iPadOS 篇 (6篇) ---
   {
     slug: "ios-foreign-apple-id",
-    title: "无需信用卡注册美区/日区Apple ID下载小火箭全攻略 - 竹梯子博客",
+    title: "无需信用卡注册美区/日区Apple ID下载小火箭全攻略 - 租梯子博客",
     h1: "2026无需信用卡免费注册美区Apple ID详细教程",
     description: "美区Apple ID注册教程。无需海外信用卡、使用国内邮箱与手机号手把手注册美区苹果账号，轻松购买下载小火箭Shadowrocket。",
     platform: "iOS / iPadOS / macOS",
@@ -264,7 +264,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "ios-shadowrocket-advanced",
-    title: "小火箭Shadowrocket高级分流规则与去广告策略组编写 - 竹梯子博客",
+    title: "小火箭Shadowrocket高级分流规则与去广告策略组编写 - 租梯子博客",
     h1: "Shadowrocket小火箭高级进阶分流与策略组配置",
     description: "Shadowrocket小火箭进阶使用指南。节点自动测速优选、去广告分流规则注入与流媒体策略组独立绑定教学。",
     platform: "iOS / iPadOS",
@@ -283,7 +283,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "ios-loon-tutorial",
-    title: "Loon轻量级网络工具配置与插件脚本使用教程 - 竹梯子博客",
+    title: "Loon轻量级网络工具配置与插件脚本使用教程 - 租梯子博客",
     h1: "iOS轻量级代理神器Loon完整上手与插件配置指南",
     description: "Loon客户端使用教程。节点订阅导入、插件Plugin安装、BoxJS脚本配置与低功耗网络分流实战技巧。",
     platform: "iOS / iPadOS",
@@ -302,7 +302,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "ios-quantumult-x-guide",
-    title: "Quantumult X圈X订阅添加、重写规则与策略组配置指南 - 竹梯子博客",
+    title: "Quantumult X圈X订阅添加、重写规则与策略组配置指南 - 租梯子博客",
     h1: "Quantumult X (圈X) 详细配置与多策略分流实战",
     description: "Quantumult X圈X新手教程。从基础节点订阅、分流规则配置、JS脚本重写到策略组建立全流程拆解。",
     platform: "iOS / iPadOS",
@@ -321,7 +321,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "ios-surge-ios-setup",
-    title: "Surge for iOS网络调试与企业级订阅规则配置 - 竹梯子博客",
+    title: "Surge for iOS网络调试与企业级订阅规则配置 - 租梯子博客",
     h1: "Surge iOS 企业级网络工具上手与策略组分流教程",
     description: "Surge iOS 配置教程。详解Surge客户端托管配置、高级策略组设计、规则引擎与低延迟漫游配置。",
     platform: "iOS",
@@ -339,7 +339,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "ios-shortcut-automation",
-    title: "利用iOS快捷指令实现定时切换节点与自动化测速 - 竹梯子博客",
+    title: "利用iOS快捷指令实现定时切换节点与自动化测速 - 租梯子博客",
     h1: "用 iOS 快捷指令打造全自动化翻墙网络体验",
     description: "iOS自动化翻墙教程。使用系统快捷指令配合小火箭/Loon，实现到家自动切直连、出门自动连专线及晚高峰自动选最快节点。",
     platform: "iOS 16 - 18",
@@ -359,7 +359,7 @@ const GUIDES_DATA = [
   // --- macOS 篇 (6篇) ---
   {
     slug: "macos-surge-mac-setup",
-    title: "Surge for Mac接管系统网卡与增强模式详细配置 - 竹梯子博客",
+    title: "Surge for Mac接管系统网卡与增强模式详细配置 - 租梯子博客",
     h1: "Surge for Mac 增强模式与全方位分流配置教学",
     description: "macOS高端工具Surge配置指南。详解增强模式Enhanced Mode开启、接管终端与虚拟机流量及智能规则策略组构建。",
     platform: "macOS (Apple Silicon & Intel)",
@@ -377,7 +377,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "macos-sing-box-gui",
-    title: "Sing-box GUI for macOS优雅轻量客户端使用指引 - 竹梯子博客",
+    title: "Sing-box GUI for macOS优雅轻量客户端使用指引 - 租梯子博客",
     h1: "Sing-box GUI 苹果电脑客户端安装与配置全攻略",
     description: "Mac版Sing-box客户端使用教程。原生适配M系列芯片，超低内存占用，支持现代VLESS与Hysteria 2高速专线。",
     platform: "macOS 12+",
@@ -395,7 +395,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "macos-terminal-proxy-zsh",
-    title: "macOS终端Terminal与iTerm2配置zsh代理加速GitHub拉取 - 竹梯子博客",
+    title: "macOS终端Terminal与iTerm2配置zsh代理加速GitHub拉取 - 租梯子博客",
     h1: "Mac 终端 Terminal 配置代理命令加速开发环境实战",
     description: "Mac终端翻墙配置教程。图解.zshrc环境变量设置、一键开关代理快捷指令与git clone加速技巧。",
     platform: "macOS Terminal / iTerm2",
@@ -414,7 +414,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "macos-homebrew-git-proxy",
-    title: "Homebrew与Git命令行翻墙加速完整配置实战 - 竹梯子博客",
+    title: "Homebrew与Git命令行翻墙加速完整配置实战 - 租梯子博客",
     h1: "Mac 下 Homebrew 与 Git 翻墙加速终极配置指南",
     description: "解决Mac Homebrew更新卡住与Git克隆失败。配置全局Git代理与Homebrew镜像/代理加速全套方案。",
     platform: "macOS",
@@ -432,7 +432,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "macos-docker-pull-proxy",
-    title: "Docker Desktop on macOS配置HTTP代理拉取海外镜像教程 - 竹梯子博客",
+    title: "Docker Desktop on macOS配置HTTP代理拉取海外镜像教程 - 租梯子博客",
     h1: "Mac Docker Desktop 配置代理拉取 Docker Hub 镜像实战",
     description: "Mac Docker镜像拉取失败解决办法。配置Docker Desktop代理参数，秒级拉取Docker Hub海外官方镜像。",
     platform: "macOS Docker Desktop",
@@ -451,7 +451,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "macos-airplay-sidecar-proxy-fix",
-    title: "Mac开启代理后隔空投送AirDrop与随航Sidecar失效修复 - 竹梯子博客",
+    title: "Mac开启代理后隔空投送AirDrop与随航Sidecar失效修复 - 租梯子博客",
     h1: "Mac 开启翻墙代理后 AirDrop 与随航失效终极修复指南",
     description: "解决Mac开启Clash或Surge后AirDrop找不到设备、隔空播放与Sidecar随航副屏断联的设置技巧。",
     platform: "macOS & iPadOS",
@@ -471,7 +471,7 @@ const GUIDES_DATA = [
   // --- Linux, 软路由与主机联机篇 (6篇) ---
   {
     slug: "linux-ubuntu-clash-core",
-    title: "Ubuntu/Debian服务器部署Clash并配置systemd系统服务守护 - 竹梯子博客",
+    title: "Ubuntu/Debian服务器部署Clash并配置systemd系统服务守护 - 租梯子博客",
     h1: "Linux / Ubuntu 无桌面服务器安装配置 Clash 教程",
     description: "Linux命令行翻墙指南。Ubuntu/Debian配置Clash核心、编写systemd服务自启守护及环境变量代理设置全流程。",
     platform: "Ubuntu / Debian / CentOS",
@@ -490,7 +490,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "linux-sing-box-server",
-    title: "Linux环境使用Sing-box实现透明代理与TProxy转发实战 - 竹梯子博客",
+    title: "Linux环境使用Sing-box实现透明代理与TProxy转发实战 - 租梯子博客",
     h1: "Linux 使用 Sing-box 搭建高性能 TProxy 透明代理",
     description: "Linux透明代理高级教程。详解iptables与nftables规则、TProxy透明转发让服务器所有出站流量自动翻墙。",
     platform: "Linux 内核 5.0+",
@@ -509,7 +509,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "openwrt-passwall-setup",
-    title: "OpenWrt软路由安装Passwall实现全家设备无感科学上网教程 - 竹梯子博客",
+    title: "OpenWrt软路由安装Passwall实现全家设备无感科学上网教程 - 租梯子博客",
     h1: "OpenWrt 软路由配置 Passwall 实现全家设备免配置翻墙",
     description: "OpenWrt软路由翻墙教程。Passwall节点添加、分流规则配置、DNS防污染与全家智能电视、手机无感翻墙指南。",
     platform: "OpenWrt / 软路由固件",
@@ -528,7 +528,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "openwrt-clash-openclash",
-    title: "OpenClash在软路由上的分流模式选择与Dev内核升级配置 - 竹梯子博客",
+    title: "OpenClash在软路由上的分流模式选择与Dev内核升级配置 - 租梯子博客",
     h1: "OpenClash 软路由插件配置与内核性能调优实战",
     description: "OpenClash新手指南。Fake-IP与Redir-Host模式区别、Dev/Meta内核切换及内存溢出优化实操教程。",
     platform: "OpenWrt",
@@ -546,7 +546,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "ps5-switch-xbox-proxy",
-    title: "PS5/Nintendo Switch/Xbox主机游戏联机利用局域网代理加速 - 竹梯子博客",
+    title: "PS5/Nintendo Switch/Xbox主机游戏联机利用局域网代理加速 - 租梯子博客",
     h1: "PS5 / Switch / Xbox 主机利用局域网电脑代理联机加速教程",
     description: "游戏主机翻墙教程。无需购买专用加速盒，利用局域网PC或Mac共享代理端口，大幅降低外服联机延迟与下载速度慢难题。",
     platform: "PlayStation / Switch / Xbox",
@@ -565,7 +565,7 @@ const GUIDES_DATA = [
   },
   {
     slug: "smart-tv-apple-tv-proxy",
-    title: "Apple TV配合Surge/Loon配置海外4K流媒体网关分流教程 - 竹梯子博客",
+    title: "Apple TV配合Surge/Loon配置海外4K流媒体网关分流教程 - 租梯子博客",
     h1: "Apple TV tvOS 部署原生代理观看 Netflix 4K 全攻略",
     description: "Apple TV翻墙看网飞教程。tvOS 17+ 原生支持 VPN 客户端（Shadowrocket/Loon），无需软路由在电视端秒开 4K HDR 杜比视界。",
     platform: "Apple TV 4K (tvOS 17+)",
@@ -607,7 +607,7 @@ GUIDES_DATA.forEach((g, idx) => {
         <span>适用平台：<strong>${g.platform}</strong></span>
         <span>更新日期：2026年11月26日</span>
         <span>阅读耗时：${g.readTime}</span>
-        <span>编写：竹梯子技术组</span>
+        <span>编写：租梯子技术组</span>
       </div>
     </div>
 
@@ -747,7 +747,7 @@ const guidesIndexGrid = `
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, "guides", "index.html"), wrapHtml({
-  title: "科学上网客户端使用教程中心 - Windows/Android/iOS/Mac/软路由全配置 - 竹梯子博客",
+  title: "科学上网客户端使用教程中心 - Windows/Android/iOS/Mac/软路由全配置 - 租梯子博客",
   description: "科学上网客户端进阶配置教程中心。30篇图文详解Windows、Android、iOS苹果、macOS、Linux与软路由各大平台Clash、Sing-box与小火箭配置实战。",
   canonicalPath: "guides/index.html",
   relPrefix: "../",

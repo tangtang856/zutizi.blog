@@ -19,7 +19,7 @@ function getHeader(relPrefix, activeNav = "") {
   <header class="site-header">
     <div class="header-container">
       <a href="${relPrefix}index.html" class="logo-brand">
-        <span class="logo-badge">竹梯子</span>
+        <span class="logo-badge">租梯子</span>
         <span>zutizi.blog</span>
       </a>
       <button class="mobile-toggle" aria-label="切换主导航菜单">☰</button>
@@ -120,7 +120,7 @@ function getFooter(relPrefix) {
   <footer class="site-footer">
     <div class="footer-container">
       <div class="footer-col">
-        <h4>关于 竹梯子博客 (zutizi.blog)</h4>
+        <h4>关于 租梯子博客 (zutizi.blog)</h4>
         <p style="color:var(--text-muted); font-size:0.85rem; line-height:1.6; margin-bottom:0.75rem;">
           专注于提供客观、中立、基于实际测速数据的中文机场节点推荐、梯子测速对比与科学上网工具客户端配置教程。
         </p>
@@ -161,7 +161,7 @@ function getFooter(relPrefix) {
       </div>
     </div>
     <div class="footer-bottom">
-      <div>&copy; 2026 zutizi.blog (竹梯子博客). 保留所有权利。</div>
+      <div>&copy; 2026 zutizi.blog (租梯子博客). 保留所有权利。</div>
       <div>基于纯静态HTML与原生CSS构建 · 极速加载 · Bing SEO规范认证</div>
     </div>
   </footer>`;
@@ -210,7 +210,7 @@ function wrapHtml({ title, description, keywords, canonicalPath, relPrefix, acti
   <meta property="og:title" content="${title}">
   <meta property="og:description" content="${description}">
   <meta property="og:url" content="${canonicalUrl}">
-  <meta property="og:site_name" content="竹梯子博客 - zutizi.blog">
+  <meta property="og:site_name" content="租梯子博客 - zutizi.blog">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="${title}">
   <meta name="twitter:description" content="${description}">

@@ -79,7 +79,7 @@ const contactContent = `
 
     <div class="callout-box" style="margin:2rem 0;">
       <div class="callout-title">🛡️ 官方防伪与沟通说明：</div>
-      <p>1. <strong>认准唯一联系方式：</strong>竹梯子博客（zutizi.blog）唯一官方 Telegram 账号为 <code>@xintangtang</code>，唯一官方联络邮箱为 <code>xintangtang888@gmail.com</code>。我们绝不会以其他小号主动私信索要密码或资金，请注意防范仿冒诈骗。</p>
+      <p>1. <strong>认准唯一联系方式：</strong>租梯子博客（zutizi.blog）唯一官方 Telegram 账号为 <code>@xintangtang</code>，唯一官方联络邮箱为 <code>xintangtang888@gmail.com</code>。我们绝不会以其他小号主动私信索要密码或资金，请注意防范仿冒诈骗。</p>
       <p>2. <strong>服务商送测与商务入驻：</strong>请在来信或私聊中提供服务商官方域名、线路架构说明（BGP/IPLC/IEPL）、测试订阅凭证及合作意向，我们将在完成基础可用性与丢包率初筛后启动评测排期。</p>
       <p>3. <strong>读者维权与跑路举报：</strong>若读者在通过本站推荐的品牌购买服务后遭遇突发失联或工单长期无人回复，请附带付款凭证与工单截图来信，我们将根据《编辑政策与评测标准》启动复查与强制下架警告机制。</p>
     </div>
@@ -95,9 +95,9 @@ const contactContent = `
 `;
 
 fs.writeFileSync(path.join(ROOT_DIR, "contact.html"), wrapHtml({
-  title: "联系我们与商务合作 - Telegram与Gmail官方联络渠道 - 竹梯子博客",
-  description: "联系竹梯子博客评测团队。获取官方 Telegram (@xintangtang) 与官方 Gmail (xintangtang888@gmail.com) 联络方式，提交节点测速纠错反馈、品牌入驻与商务合作沟通。",
-  keywords: "联系我们, 商务合作, 机场送测, 节点纠错, Telegram联系, Gmail联系, 竹梯子博客",
+  title: "联系我们与商务合作 - Telegram与Gmail官方联络渠道 - 租梯子博客",
+  description: "联系租梯子博客评测团队。获取官方 Telegram (@xintangtang) 与官方 Gmail (xintangtang888@gmail.com) 联络方式，提交节点测速纠错反馈、品牌入驻与商务合作沟通。",
+  keywords: "联系我们, 商务合作, 机场送测, 节点纠错, Telegram联系, Gmail联系, 租梯子博客",
   canonicalPath: "contact.html",
   relPrefix: "./",
   breadcrumbs: [{ name: "联系我们" }],
