@@ -33,6 +33,9 @@ console.log(`🚀 开始根据 14 家真实品牌生成全站核心页面...`);
 // ==========================================
 const homeContent = `
 <section class="hero-section">
+  <div class="hero-bg-layer" aria-hidden="true"></div>
+  <canvas class="hero-canvas" id="hero-dynamic-canvas" aria-hidden="true"></canvas>
+  <div class="hero-content">
   <div class="notice-ticker">
     <span>🔔 2026年3月最新：已更新全部14家服务商晚高峰丢包监控、三大运营商测速矩阵与最新可用优惠码</span>
   </div>
@@ -70,6 +73,7 @@ const homeContent = `
       <div class="stat-number">24 小时</div>
       <div class="stat-label">晚高峰丢包与延迟监控</div>
     </div>
+  </div>
   </div>
 </section>
 

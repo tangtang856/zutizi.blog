@@ -196,21 +196,61 @@ img {
   font-weight: 500;
 }
 
-/* Hero Section - High-Tech Fiber Speed Theme */
+/* Hero Section - Ultra-HD Dynamic Cyber Speed Theme */
 .hero-section {
   position: relative;
-  background-color: #070d1e;
-  background-image: 
-    linear-gradient(180deg, rgba(7, 13, 30, 0.72) 0%, rgba(7, 13, 30, 0.88) 100%),
-    url('../images/hero-bg.png');
-  background-position: center center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 4rem 1.25rem 3.5rem;
+  background-color: #060b18;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 4.25rem 1.25rem 3.75rem;
   text-align: center;
   color: #ffffff;
   overflow: hidden;
+  z-index: 1;
+}
+
+.hero-bg-layer {
+  position: absolute;
+  top: -6%;
+  left: -6%;
+  width: 112%;
+  height: 112%;
+  background-image: 
+    linear-gradient(180deg, rgba(6, 11, 24, 0.65) 0%, rgba(6, 11, 24, 0.82) 100%),
+    url('../images/hero-bg.jpg');
+  background-position: center 32%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  image-rendering: -webkit-optimize-contrast;
+  animation: heroDynamicDrift 28s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes heroDynamicDrift {
+  0% {
+    transform: scale(1.02) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.06) translate(-1.2%, -0.8%);
+  }
+  100% {
+    transform: scale(1.03) translate(0.8%, -0.5%);
+  }
+}
+
+.hero-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
 }
 
 .hero-section .notice-ticker {
