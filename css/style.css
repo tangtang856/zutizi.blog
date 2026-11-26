@@ -276,6 +276,7 @@ img {
   cursor: pointer;
   transition: all 0.15s ease;
   border: 1px solid transparent;
+  white-space: nowrap;
 }
 
 .btn-primary {
@@ -305,6 +306,10 @@ img {
 .btn-sm {
   padding: 0.4rem 0.85rem;
   font-size: 0.85rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Callouts / Quick Answer Box */
@@ -586,6 +591,20 @@ img {
   border-collapse: collapse;
   font-size: 0.9rem;
   text-align: left;
+}
+
+.data-table th:last-child,
+.data-table td:last-child {
+  white-space: nowrap;
+}
+
+.data-table td .btn,
+.data-table td .btn-sm {
+  white-space: nowrap;
+  min-width: 76px;
+  text-align: center;
+  justify-content: center;
+  display: inline-flex;
 }
 
 .data-table th, .data-table td {

@@ -669,7 +669,7 @@ const budgetContent = `
             <th>可用流量</th>
             <th>每GB单价</th>
             <th>优惠券</th>
-            <th>直达官网</th>
+            <th style="width:105px; min-width:105px; text-align:center; white-space:nowrap;">直达官网</th>
           </tr>
         </thead>
         <tbody>
@@ -680,7 +680,7 @@ const budgetContent = `
             <td>100 GB</td>
             <td>¥0.049 / GB</td>
             <td>无需优惠码</td>
-            <td><a href="https://varnexa.flyvaff.com/#/?code=Ks7qO8qe" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://varnexa.flyvaff.com/#/?code=Ks7qO8qe" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
           <tr>
             <td><strong><a href="../review/feimaoyun.html">飞猫云</a></strong></td>
@@ -689,7 +689,7 @@ const budgetContent = `
             <td>150 GB</td>
             <td>¥0.047 / GB</td>
             <td>flycat888</td>
-            <td><a href="https://flycat1.flycatvipaff.cc/#/?code=MlwqPqcx" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://flycat1.flycatvipaff.cc/#/?code=MlwqPqcx" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
           <tr>
             <td><strong><a href="../review/breezenet.html">微风网络 Breezenet</a></strong></td>
@@ -698,7 +698,7 @@ const budgetContent = `
             <td>200 GB</td>
             <td>¥0.040 / GB</td>
             <td>weifeng90</td>
-            <td><a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
           <tr>
             <td><strong><a href="../review/firefly.html">萤火虫（Firefly）</a></strong></td>
@@ -707,7 +707,7 @@ const budgetContent = `
             <td>60 GB</td>
             <td>¥0.133 / GB</td>
             <td>firefly</td>
-            <td><a href="https://vip02.fireflyaff.com/#/?code=uTKLkAyC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://vip02.fireflyaff.com/#/?code=uTKLkAyC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
         </tbody>
       </table>
@@ -760,7 +760,7 @@ const premiumContent = `
             <th>起步资费</th>
             <th>入门流量</th>
             <th>晚高峰实测表现</th>
-            <th>直达官网</th>
+            <th style="width:105px; min-width:105px; text-align:center; white-space:nowrap;">直达官网</th>
           </tr>
         </thead>
         <tbody>
@@ -770,7 +770,7 @@ const premiumContent = `
             <td>¥8.00/月</td>
             <td>200 GB</td>
             <td>丢包率 &lt; 0.2%，双ISP原生解锁</td>
-            <td><a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
           <tr>
             <td><strong><a href="../review/wavenet.html">浪网 WaveNet</a></strong></td>
@@ -778,7 +778,7 @@ const premiumContent = `
             <td>¥30.00/月</td>
             <td>150 GB</td>
             <td>延迟低至12ms，丢包率0.0%</td>
-            <td><a href="https://varnexa.wavenetaff.com/#/?code=8fwQQBdy" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://varnexa.wavenetaff.com/#/?code=8fwQQBdy" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
           <tr>
             <td><strong><a href="../review/lingmao.html">灵猫</a></strong></td>
@@ -786,7 +786,7 @@ const premiumContent = `
             <td>¥25.00/月</td>
             <td>150 GB</td>
             <td>纯净住宅IP，晚高峰零卡顿</td>
-            <td><a href="https://vip02.civetaff.com/#/?code=SXY8qyrG" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://vip02.civetaff.com/#/?code=SXY8qyrG" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
           <tr>
             <td><strong><a href="../review/flashleap.html">闪跃 FlashLeap</a></strong></td>
@@ -794,7 +794,7 @@ const premiumContent = `
             <td>¥24.00/月</td>
             <td>150 GB</td>
             <td>千兆BGP骨干，低延迟游戏联机</td>
-            <td><a href="https://vip02.flashleapaff.com/#/?code=8ZIV6HQ3" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://vip02.flashleapaff.com/#/?code=8ZIV6HQ3" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
           <tr>
             <td><strong><a href="../review/yinxingren.html">隐形人</a></strong></td>
@@ -802,7 +802,7 @@ const premiumContent = `
             <td>¥24.00/月</td>
             <td>144 GB</td>
             <td>支持8台设备，晚高峰极度平稳</td>
-            <td><a href="https://varnexa.invisibleaff.com/#/?code=5BkMj6bD" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://varnexa.invisibleaff.com/#/?code=5BkMj6bD" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
           <tr>
             <td><strong><a href="../review/wuyou.html">无忧 (无忧链接)</a></strong></td>
@@ -810,7 +810,7 @@ const premiumContent = `
             <td>¥19.00/月</td>
             <td>100 GB</td>
             <td>端到端物理专线，丢包率&lt;0.1%</td>
-            <td><a href="https://wep01.worryfreeaff.com/#/?code=oGi9FQ0J" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="https://wep01.worryfreeaff.com/#/?code=oGi9FQ0J" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">官网直达</a></td>
           </tr>
         </tbody>
       </table>
@@ -856,7 +856,7 @@ const beginnerContent = `
             <th>入门流量</th>
             <th>上手难度</th>
             <th>推荐理由</th>
-            <th>官网直达</th>
+            <th style="width:90px; min-width:90px; text-align:center; white-space:nowrap;">官网直达</th>
           </tr>
         </thead>
         <tbody>
@@ -935,7 +935,7 @@ const stableContent = `
             <th>主力协议</th>
             <th>晚高峰丢包率</th>
             <th>平均延迟</th>
-            <th>直达官网</th>
+            <th style="width:90px; min-width:90px; text-align:center; white-space:nowrap;">直达官网</th>
           </tr>
         </thead>
         <tbody>
@@ -1017,7 +1017,7 @@ const aiContent = `
             <th>ChatGPT支持</th>
             <th>Claude支持</th>
             <th>IP纯净度</th>
-            <th>直达官网</th>
+            <th style="width:90px; min-width:90px; text-align:center; white-space:nowrap;">直达官网</th>
           </tr>
         </thead>
         <tbody>
@@ -1090,7 +1090,7 @@ const streamingContent = `
             <th>Netflix解锁</th>
             <th>Disney+解锁</th>
             <th>YouTube 4K缓冲速度</th>
-            <th>直达官网</th>
+            <th style="width:90px; min-width:90px; text-align:center; white-space:nowrap;">直达官网</th>
           </tr>
         </thead>
         <tbody>
@@ -1173,8 +1173,8 @@ const overallRankingContent = `
           <th>入门流量</th>
           <th>线路类型</th>
           <th>优惠券</th>
-          <th>直达官网</th>
-          <th>评测报告</th>
+          <th style="width:96px; min-width:96px; text-align:center; white-space:nowrap;">直达官网</th>
+          <th style="width:80px; min-width:80px; text-align:center; white-space:nowrap;">评测报告</th>
         </tr>
       </thead>
       <tbody>
@@ -1187,8 +1187,8 @@ const overallRankingContent = `
             <td>${a.plans[0].trafficGb} GB</td>
             <td>${a.description.includes('IPLC') || a.description.includes('IEPL') ? '物理专线' : '中转优化'}</td>
             <td>${a.coupon ? `<span class="badge badge-amber">${a.coupon}</span>` : '无'}</td>
-            <td><a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
-            <td><a href="../review/${a.slug}.html" class="btn btn-outline btn-sm">报告</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td style="text-align:center; white-space:nowrap;"><a href="../review/${a.slug}.html" class="btn btn-outline btn-sm">报告</a></td>
           </tr>
         `).join("")}
       </tbody>
@@ -1233,7 +1233,7 @@ const valueRankingContent = `
             <th>可用流量</th>
             <th>每GB折算单价</th>
             <th>优惠券</th>
-            <th>直达官网</th>
+            <th style="width:90px; min-width:90px; text-align:center; white-space:nowrap;">直达官网</th>
           </tr>
         </thead>
         <tbody>
@@ -1245,7 +1245,7 @@ const valueRankingContent = `
               <td>${a.plans[0].trafficGb} GB</td>
               <td><strong style="color:var(--primary);">¥${a.plans[0].pricePerGb.toFixed(3)} / GB</strong></td>
               <td>${a.coupon || '无'}</td>
-              <td><a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
+              <td style="text-align:center; white-space:nowrap;"><a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
             </tr>
           `).join("")}
         </tbody>
@@ -1296,7 +1296,7 @@ const budgetRankingContent = `
             <th>包含流量</th>
             <th>每GB单价</th>
             <th>特色</th>
-            <th>直达官网</th>
+            <th style="width:90px; min-width:90px; text-align:center; white-space:nowrap;">直达官网</th>
           </tr>
         </thead>
         <tbody>
@@ -1308,7 +1308,7 @@ const budgetRankingContent = `
               <td>${a.plans[0].trafficGb} GB</td>
               <td>¥${a.plans[0].pricePerGb.toFixed(3)}</td>
               <td>${a.advantages[0]}</td>
-              <td><a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
+              <td style="text-align:center; white-space:nowrap;"><a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
             </tr>
           `).join("")}
         </tbody>
@@ -1353,7 +1353,7 @@ const stableRankingContent = `
             <th>线路架构</th>
             <th>晚高峰丢包率</th>
             <th>协议支持</th>
-            <th>直达官网</th>
+            <th style="width:90px; min-width:90px; text-align:center; white-space:nowrap;">直达官网</th>
           </tr>
         </thead>
         <tbody>
@@ -1364,7 +1364,7 @@ const stableRankingContent = `
               <td>${a.description.includes('IPLC') || a.description.includes('IEPL') ? '物理内网专线' : '自研优化专线'}</td>
               <td>&lt; 0.2% (实测)</td>
               <td>${a.protocols.join(" / ")}</td>
-              <td><a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
+              <td style="text-align:center; white-space:nowrap;"><a href="${a.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
             </tr>
           `).join("")}
         </tbody>
