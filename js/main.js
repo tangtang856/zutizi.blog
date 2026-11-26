@@ -1,6 +1,6 @@
 /**
  * zutizi.blog - 全站通用轻量交互脚本
- * 零外部依赖，纯原生JavaScript，秒级响应
+ * 零外部依赖，纯原生JavaScript，极速秒开，完美支持本地 file:/// 与线上部署
  */
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -16,14 +16,34 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // 2. FAQ 折叠手风琴逻辑
+  // 2. 交互式分类标签切换 (Tab Filter - 消灭重复堆叠)
+  const tabButtons = document.querySelectorAll(".filter-tab-btn");
+  if (tabButtons.length > 0) {
+    tabButtons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        tabButtons.forEach(function (b) { b.classList.remove("active"); });
+        this.classList.add("active");
+        const targetCategory = this.getAttribute("data-category");
+        const cards = document.querySelectorAll(".airport-card[data-category]");
+        cards.forEach(function (card) {
+          const cats = card.getAttribute("data-category") || "";
+          if (targetCategory === "all" || cats.includes(targetCategory)) {
+            card.style.display = "";
+          } else {
+            card.style.display = "none";
+          }
+        });
+      });
+    });
+  }
+
+  // 3. FAQ 折叠手风琴逻辑
   const faqItems = document.querySelectorAll(".faq-item");
   faqItems.forEach(function (item) {
     const questionBtn = item.querySelector(".faq-question");
     if (questionBtn) {
       questionBtn.addEventListener("click", function () {
         const isActive = item.classList.contains("active");
-        // 如果需要独占展开，可关闭其他
         faqItems.forEach(function (other) {
           if (other !== item) other.classList.remove("active");
         });
@@ -32,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // 3. 机场列表动态快速筛选（如果页面有筛选输入框）
+  // 4. 机场列表动态搜索过滤
   const filterInput = document.getElementById("airport-filter-input");
   if (filterInput) {
     filterInput.addEventListener("input", function (e) {

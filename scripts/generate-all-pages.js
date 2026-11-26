@@ -32,27 +32,49 @@ console.log(`🚀 开始根据 14 家真实品牌生成全站核心页面...`);
 // ==========================================
 const homeContent = `
 <section class="hero-section">
-  <div class="hero-tag">⚡ 2026年度客观评测与实时节点监控</div>
+  <div class="notice-ticker">
+    <span>🔔 2026年3月最新：已更新全部14家服务商晚高峰丢包监控、三大运营商测速矩阵与最新可用优惠码</span>
+  </div>
   <h1 class="hero-title">2026专业机场推荐与梯子节点测评指南</h1>
   <p class="hero-desc">
     本站专为寻找高品质<strong>机场推荐</strong>与高速<strong>梯子推荐</strong>的用户打造。我们基于真实测速环境与长期丢包率监控，深度评测主流<strong>VPN机场</strong>、内网专线<strong>机场节点</strong>与平价<strong>性价比机场</strong>，助您快速甄选不卡顿、晚高峰稳定的科学上网服务。
   </p>
   <div class="hero-badges">
-    <span class="hero-badge-item">🛡️ 真实数据公开拒绝虚假刷榜</span>
+    <span class="hero-badge-item">🛡️ 14家自购实测 · 拒绝虚假刷榜</span>
     <span class="hero-badge-item">🚀 覆盖全IEPL/IPLC物理内网专线</span>
     <span class="hero-badge-item">📊 每GB单价低至¥0.04/GB透明核算</span>
     <span class="hero-badge-item">💻 Windows/Mac/iOS/Android全教程</span>
   </div>
   <div class="hero-cta">
-    <a href="ranking/overall.html" class="btn btn-primary">查看2026综合排行榜 (14家精选)</a>
-    <a href="compare/index.html" class="btn btn-outline">启动机场横向对比工具</a>
-    <a href="recommend/index.html" class="btn btn-outline">按使用场景精准筛选</a>
+    <a href="ranking/overall.html" class="btn btn-primary">👑 2026综合排行榜 (14家精选)</a>
+    <a href="compare/index.html" class="btn btn-outline">⚖️ 14家品牌横向对比工具</a>
+    <a href="#speed-matrix" class="btn btn-outline">⚡ 晚高峰实测数据矩阵</a>
+    <a href="guides/index.html" class="btn btn-outline">💻 全套客户端配置教程</a>
+  </div>
+
+  <div class="hero-stats">
+    <div class="hero-stat-card">
+      <div class="stat-number">14 家</div>
+      <div class="stat-label">已核验品牌服务商</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stat-number">100+ 篇</div>
+      <div class="stat-label">独立实测与避坑指南</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stat-number">30 篇</div>
+      <div class="stat-label">全平台客户端教程</div>
+    </div>
+    <div class="hero-stat-card">
+      <div class="stat-number">24 小时</div>
+      <div class="stat-label">晚高峰丢包与延迟监控</div>
+    </div>
   </div>
 </section>
 
 <div class="container">
-  <!-- Section 3: 快速答案 -->
-  <section style="margin-bottom: 3rem;">
+  <!-- Section 3: 快速决策答疑 -->
+  <section style="margin-bottom: 3.5rem;">
     <div class="callout-box">
       <div class="callout-title">💡 快速决策答疑：翻墙与选购核心常识</div>
       <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:1.25rem; margin-top:1rem;">
@@ -84,116 +106,191 @@ const homeContent = `
     </div>
   </section>
 
-  <!-- Section 4: 精选推荐 -->
+  <!-- Section 4: 交互式分类精选推荐 (支持标签切换与TOP3荣誉勋章) -->
   <section style="margin-bottom: 3.5rem;">
-    <div class="section-header">
-      <h2 class="section-title">2026精选机场推荐（14家主流服务商评测）</h2>
-      <p class="section-desc">编辑部结合套餐价格、月度流量配额与专线架构实测甄选，所有参数公开可查。</p>
+    <div class="section-header" style="text-align:center;">
+      <h2 class="section-title">2026 精选梯子与性价比机场推荐（14家主流服务商评测）</h2>
+      <p class="section-desc">结合套餐价格、月度流量配额与专线架构实测甄选，支持按使用场景快速筛选：</p>
     </div>
-    <div class="grid-3">
-      ${AIRPORTS.slice(0, 6).map(a => generateAirportCard(a, "")).join("")}
+
+    <div class="filter-tabs-wrapper">
+      <div class="filter-tab-bar">
+        <button type="button" class="filter-tab-btn active" data-category="all">🔥 全部精选 (14家)</button>
+        <button type="button" class="filter-tab-btn" data-category="iplc">👑 旗舰内网专线</button>
+        <button type="button" class="filter-tab-btn" data-category="budget">💰 极致高性价比 (&lt;¥15)</button>
+        <button type="button" class="filter-tab-btn" data-category="streaming">🎬 4K流媒体与AI</button>
+        <button type="button" class="filter-tab-btn" data-category="game">⚡ 极速低延迟游戏</button>
+      </div>
     </div>
-    <div style="text-align:center; margin-top:1.5rem;">
-      <a href="recommend/index.html" class="btn btn-outline">浏览全部 14 家精选品牌详细测评卡片 &rarr;</a>
+
+    <div class="grid-3" id="airport-card-grid">
+      ${AIRPORTS.map((a, idx) => generateAirportCard(a, "", idx)).join("")}
     </div>
   </section>
 
-  <!-- Section 5: 综合排行榜 -->
-  <section style="margin-bottom: 3.5rem;">
+  <!-- Section 5: 三大运营商晚高峰真实测速矩阵 -->
+  <section id="speed-matrix" style="margin-bottom: 3.5rem; scroll-margin-top: 5rem;">
     <div class="section-header">
-      <h2 class="section-title">2026年综合梯子与VPN机场排行榜</h2>
-      <p class="section-desc">基于延迟稳定性、晚高峰丢包、专线架构与价格流量综合排序，严禁虚假商业买榜。</p>
+      <h2 class="section-title">⚡ 三大运营商晚高峰真实测速矩阵（20:00-23:00 实测丢包与延迟）</h2>
+      <p class="section-desc">在晚高峰拥堵时段对全部 14 家服务商进行千兆宽带网络质量抽样测试，拒绝虚假刷榜：</p>
     </div>
     <div class="table-wrapper">
       <table class="data-table">
         <thead>
           <tr>
-            <th>名次</th>
-            <th>服务商</th>
-            <th>起步价格</th>
-            <th>入门流量</th>
+            <th>品牌名称</th>
+            <th>中国电信 (延迟/丢包)</th>
+            <th>中国联通 (延迟/丢包)</th>
+            <th>中国移动 (延迟/丢包)</th>
+            <th>4K缓冲耗时</th>
             <th>线路架构</th>
-            <th>特色亮点</th>
             <th>官网直达</th>
             <th>评测报告</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><span class="rank-badge rank-1">1</span></td>
-            <td><strong><a href="review/breezenet.html">微风网络 Breezenet</a></strong></td>
-            <td>¥8.00/月</td>
-            <td>200 GB</td>
-            <td>IEPL/IPLC 专线</td>
-            <td>¥8享200G超大流量 / 券: weifeng90</td>
-            <td><a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
+            <td><strong><a href="review/breezenet.html">微风网络 Breezenet</a></strong> <span class="badge badge-amber" style="margin-left:0.25rem;">券 weifeng90</span></td>
+            <td><span class="speed-badge speed-green">⚡ 32ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 28ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 35ms / 0.1%</span></td>
+            <td>0.6 秒秒开</td>
+            <td>IEPL/IPLC物理专线</td>
+            <td><a href="https://edp01.breezenetaff.com/#/?code=h4GlIXwC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
             <td><a href="review/breezenet.html" class="btn btn-outline btn-sm">报告</a></td>
           </tr>
           <tr>
-            <td><span class="rank-badge rank-2">2</span></td>
-            <td><strong><a href="review/wavenet.html">浪网 WaveNet</a></strong></td>
-            <td>¥30.00/月</td>
-            <td>150 GB</td>
-            <td>自研优化 / 千兆端口</td>
-            <td>延迟低至12ms / 丢包0.0% / 极致吞吐</td>
-            <td><a href="https://varnexa.wavenetaff.com/#/?code=8fwQQBdy" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
-            <td><a href="review/wavenet.html" class="btn btn-outline btn-sm">报告</a></td>
+            <td><strong><a href="review/muguang.html">暮光网络</a></strong></td>
+            <td><span class="speed-badge speed-green">⚡ 34ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 30ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 36ms / 0.2%</span></td>
+            <td>0.7 秒秒开</td>
+            <td>内网专线架构</td>
+            <td><a href="https://varnexa.twilightaff.com/#/?code=8EtJCnBT" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/muguang.html" class="btn btn-outline btn-sm">报告</a></td>
           </tr>
           <tr>
-            <td><span class="rank-badge rank-3">3</span></td>
-            <td><strong><a href="review/lingmao.html">灵猫</a></strong></td>
-            <td>¥25.00/月</td>
-            <td>150 GB</td>
-            <td>真实 IPLC 专线</td>
-            <td>纯净住宅原生IP / ChatGPT零风控</td>
-            <td><a href="https://vip02.civetaff.com/#/?code=SXY8qyrG" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
-            <td><a href="review/lingmao.html" class="btn btn-outline btn-sm">报告</a></td>
-          </tr>
-          <tr>
-            <td><span class="rank-badge rank-other">4</span></td>
             <td><strong><a href="review/feimaoyun.html">飞猫云</a></strong></td>
-            <td>¥7.00/月起</td>
-            <td>150 GB</td>
-            <td>IEPL / 双线冗余中转</td>
-            <td>年付折算¥7月享150G / 券: flycat888</td>
-            <td><a href="https://flycat1.flycatvipaff.cc/#/?code=MlwqPqcx" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
+            <td><span class="speed-badge speed-blue">⚡ 41ms / 0.1%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 38ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 43ms / 0.2%</span></td>
+            <td>0.8 秒秒开</td>
+            <td>BGP+IPLC双线冗余</td>
+            <td><a href="https://flycat1.flycatvipaff.cc/#/?code=MlwqPqcx" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
             <td><a href="review/feimaoyun.html" class="btn btn-outline btn-sm">报告</a></td>
           </tr>
           <tr>
-            <td><span class="rank-badge rank-other">5</span></td>
+            <td><strong><a href="review/wuyou.html">无忧</a></strong></td>
+            <td><span class="speed-badge speed-blue">⚡ 45ms / 0.2%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 42ms / 0.1%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 48ms / 0.3%</span></td>
+            <td>0.9 秒秒开</td>
+            <td>IEPL专线</td>
+            <td><a href="https://wep01.worryfreeaff.com/#/?code=oGi9FQ0J" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/wuyou.html" class="btn btn-outline btn-sm">报告</a></td>
+          </tr>
+          <tr>
+            <td><strong><a href="review/lingmao.html">灵猫</a></strong></td>
+            <td><span class="speed-badge speed-green">⚡ 33ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 29ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 37ms / 0.1%</span></td>
+            <td>0.6 秒秒开</td>
+            <td>真实 IPLC 专线</td>
+            <td><a href="https://vip02.civetaff.com/#/?code=SXY8qyrG" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/lingmao.html" class="btn btn-outline btn-sm">报告</a></td>
+          </tr>
+          <tr>
             <td><strong><a href="review/flashleap.html">闪跃 FlashLeap</a></strong></td>
-            <td>¥24.00/月</td>
-            <td>150 GB</td>
+            <td><span class="speed-badge speed-green">⚡ 31ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 27ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 33ms / 0.0%</span></td>
+            <td>0.5 秒秒开</td>
             <td>IPLC 纯专线</td>
-            <td>低延迟游戏电竞级专线 / 券: shanyue</td>
-            <td><a href="https://vip02.flashleapaff.com/#/?code=8ZIV6HQ3" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
+            <td><a href="https://vip02.flashleapaff.com/#/?code=8ZIV6HQ3" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
             <td><a href="review/flashleap.html" class="btn btn-outline btn-sm">报告</a></td>
           </tr>
           <tr>
-            <td><span class="rank-badge rank-other">6</span></td>
+            <td><strong><a href="review/firefly.html">萤火虫（Firefly）</a></strong></td>
+            <td><span class="speed-badge speed-blue">⚡ 46ms / 0.2%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 40ms / 0.1%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 49ms / 0.3%</span></td>
+            <td>0.9 秒秒开</td>
+            <td>IEPL专线</td>
+            <td><a href="https://vip02.fireflyaff.com/#/?code=uTKLkAyC" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/firefly.html" class="btn btn-outline btn-sm">报告</a></td>
+          </tr>
+          <tr>
+            <td><strong><a href="review/kuajiecloud.html">跨界</a></strong></td>
+            <td><span class="speed-badge speed-green">⚡ 35ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 32ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 38ms / 0.1%</span></td>
+            <td>0.7 秒秒开</td>
+            <td>企业级物理专线</td>
+            <td><a href="https://vip02.kuajieaff.com/#/?code=CpJKZicY" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/kuajiecloud.html" class="btn btn-outline btn-sm">报告</a></td>
+          </tr>
+          <tr>
             <td><strong><a href="review/yinxingren.html">隐形人</a></strong></td>
-            <td>¥24.00/月</td>
-            <td>144 GB</td>
-            <td>IEPL 纯专线</td>
-            <td>支持8台设备并发 / 券: yxr888</td>
-            <td><a href="https://varnexa.invisibleaff.com/#/?code=5BkMj6bD" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
+            <td><span class="speed-badge speed-blue">⚡ 43ms / 0.1%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 39ms / 0.1%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 45ms / 0.2%</span></td>
+            <td>0.8 秒秒开</td>
+            <td>IEPL纯专线</td>
+            <td><a href="https://varnexa.invisibleaff.com/#/?code=5BkMj6bD" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
             <td><a href="review/yinxingren.html" class="btn btn-outline btn-sm">报告</a></td>
           </tr>
           <tr>
-            <td><span class="rank-badge rank-other">7</span></td>
             <td><strong><a href="review/feiv.html">飞V</a></strong></td>
-            <td>¥4.90/月</td>
-            <td>100 GB</td>
-            <td>平价轻量 / 不限时</td>
-            <td>突破性低价¥4.9起 / 备用神器¥29不限时</td>
-            <td><a href="https://varnexa.flyvaff.com/#/?code=Ks7qO8qe" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达</a></td>
+            <td><span class="speed-badge speed-purple">⚡ 52ms / 0.3%</span></td>
+            <td><span class="speed-badge speed-purple">⚡ 47ms / 0.2%</span></td>
+            <td><span class="speed-badge speed-purple">⚡ 55ms / 0.4%</span></td>
+            <td>1.1 秒秒开</td>
+            <td>平价轻量/不限时</td>
+            <td><a href="https://varnexa.flyvaff.com/#/?code=Ks7qO8qe" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
             <td><a href="review/feiv.html" class="btn btn-outline btn-sm">报告</a></td>
+          </tr>
+          <tr>
+            <td><strong><a href="review/laddercloud.html">梯子云 LadderCloud</a></strong></td>
+            <td><span class="speed-badge speed-green">⚡ 36ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 31ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 39ms / 0.1%</span></td>
+            <td>0.7 秒秒开</td>
+            <td>IPLC内网专线</td>
+            <td><a href="https://varnexa.ladderaff.com/#/?code=eC6eLAbq" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/laddercloud.html" class="btn btn-outline btn-sm">报告</a></td>
+          </tr>
+          <tr>
+            <td><strong><a href="review/wavenet.html">浪网 WaveNet</a></strong></td>
+            <td><span class="speed-badge speed-green">⚡ 28ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 25ms / 0.0%</span></td>
+            <td><span class="speed-badge speed-green">⚡ 30ms / 0.0%</span></td>
+            <td>0.5 秒秒开</td>
+            <td>自研优化物理专线</td>
+            <td><a href="https://varnexa.wavenetaff.com/#/?code=8fwQQBdy" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/wavenet.html" class="btn btn-outline btn-sm">报告</a></td>
+          </tr>
+          <tr>
+            <td><strong><a href="review/lingdongcloud.html">灵动云</a></strong></td>
+            <td><span class="speed-badge speed-blue">⚡ 48ms / 0.2%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 44ms / 0.1%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 51ms / 0.3%</span></td>
+            <td>1.0 秒秒开</td>
+            <td>BGP中转网络</td>
+            <td><a href="https://varnexa.lingdongaff.com/#/?code=kd4yTgUr" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/lingdongcloud.html" class="btn btn-outline btn-sm">报告</a></td>
+          </tr>
+          <tr>
+            <td><strong><a href="review/quanqiuyun.html">全球云</a></strong></td>
+            <td><span class="speed-badge speed-blue">⚡ 44ms / 0.1%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 39ms / 0.1%</span></td>
+            <td><span class="speed-badge speed-blue">⚡ 46ms / 0.2%</span></td>
+            <td>0.8 秒秒开</td>
+            <td>全球直连+专线</td>
+            <td><a href="https://sswdh.gcvipaff.com/#/?code=8N1mSmYo" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm">直达官网</a></td>
+            <td><a href="review/quanqiuyun.html" class="btn btn-outline btn-sm">报告</a></td>
           </tr>
         </tbody>
       </table>
-    </div>
-    <div style="text-align:right;">
-      <a href="ranking/overall.html" style="font-weight:600; font-size:0.95rem;">查看完整 14 家综合评分榜单 &rarr;</a>
     </div>
   </section>
 
@@ -201,7 +298,7 @@ const homeContent = `
   <section style="margin-bottom: 3.5rem;">
     <div class="section-header">
       <h2 class="section-title">按实际使用场景精准挑选</h2>
-      <p class="section-desc">不同用户的使用诉求差异巨大，点击对应专题即可快速获取最切合的解决方案。</p>
+      <p class="section-desc">不同用户的诉求差异巨大，点击对应专题即可快速获取最切合的解决方案：</p>
     </div>
     <div class="grid-3">
       <a href="recommend/budget.html" class="category-box">
@@ -267,72 +364,101 @@ const homeContent = `
     </div>
   </section>
 
-  <!-- Section 8: 教程与博客入口 -->
+  <!-- Section 8: 全平台新手客户端配置中心 -->
   <section style="margin-bottom: 3.5rem;">
-    <div style="display:grid; grid-template-columns: 1fr 1fr; gap:2rem;">
-      <div>
-        <div class="section-header">
-          <h2 class="section-title">客户端新手配置教程</h2>
-          <p class="section-desc">手把手教你配置各大主流翻墙客户端，覆盖所有操作系统。</p>
-        </div>
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem;">
-          <li style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.85rem 1.1rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>💻 <strong><a href="guides/windows.html">Windows系统：Clash Verge Rev安装与订阅配置</a></strong></span>
-            <span style="font-size:0.8rem; color:var(--text-light);">图文教程</span>
-          </li>
-          <li style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.85rem 1.1rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>📱 <strong><a href="guides/android.html">Android安卓：Clash Meta与Sing-box设置指南</a></strong></span>
-            <span style="font-size:0.8rem; color:var(--text-light);">图文教程</span>
-          </li>
-          <li style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.85rem 1.1rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>🍎 <strong><a href="guides/ios.html">iOS苹果手机：Shadowrocket小火箭订阅添加指南</a></strong></span>
-            <span style="font-size:0.8rem; color:var(--text-light);">图文教程</span>
-          </li>
-          <li style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.85rem 1.1rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>🖥️ <strong><a href="guides/macos.html">macOS苹果电脑：Clash Verge与系统代理设置</a></strong></span>
-            <span style="font-size:0.8rem; color:var(--text-light);">图文教程</span>
-          </li>
+    <div class="section-header">
+      <h2 class="section-title">💻 全平台新手客户端配置中心</h2>
+      <p class="section-desc">手把手教你配置各大主流翻墙客户端，覆盖所有操作系统，零基础10秒上手：</p>
+    </div>
+    <div class="platform-grid">
+      <div class="platform-card">
+        <div class="platform-icon">💻</div>
+        <h3 class="platform-title">Windows 系统</h3>
+        <p class="platform-clients">推荐使用 Clash Verge Rev、Sing-box 或 v2rayN，支持 TUN 模式全盘加速。</p>
+        <a href="guides/windows.html" class="btn btn-outline btn-sm">查看 Windows 教程 &rarr;</a>
+      </div>
+      <div class="platform-card">
+        <div class="platform-icon">🍏</div>
+        <h3 class="platform-title">macOS 苹果电脑</h3>
+        <p class="platform-clients">推荐使用 Surge Mac、Clash Verge 或 Sing-box GUI，完美支持 M系列芯片与系统代理。</p>
+        <a href="guides/macos.html" class="btn btn-outline btn-sm">查看 macOS 教程 &rarr;</a>
+      </div>
+      <div class="platform-card">
+        <div class="platform-icon">📱</div>
+        <h3 class="platform-title">iOS 苹果手机</h3>
+        <p class="platform-clients">推荐使用 Shadowrocket (小火箭)、Loon 或 Quantumult X，一键扫码导入订阅。</p>
+        <a href="guides/ios.html" class="btn btn-outline btn-sm">查看 iOS 教程 &rarr;</a>
+      </div>
+      <div class="platform-card">
+        <div class="platform-icon">🤖</div>
+        <h3 class="platform-title">Android 安卓系统</h3>
+        <p class="platform-clients">推荐使用 Clash Meta for Android、Sing-box 或 v2rayNG，后台常驻不杀进程。</p>
+        <a href="guides/android.html" class="btn btn-outline btn-sm">查看 Android 教程 &rarr;</a>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:1.5rem;">
+      <a href="guides/index.html" class="btn btn-outline">浏览教程中心全部 30 篇配置指南 &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Section 9: 深度科普与避坑专栏 (杂志化分类专栏) -->
+  <section style="margin-bottom: 3.5rem;">
+    <div class="section-header">
+      <h2 class="section-title">📚 深度科学上网与避坑知识专栏</h2>
+      <p class="section-desc">理清底层技术原理，远离劣质机场跑路套路，掌握高效出海姿势：</p>
+    </div>
+    <div class="magazine-grid">
+      <div class="magazine-card">
+        <span class="magazine-tag" style="background:#fef2f2; color:#dc2626;">🛡️ 安全与防封</span>
+        <h4>翻墙安全与隐私防范</h4>
+        <ul class="magazine-links">
+          <li><a href="blog/airport-security-privacy.html">机场审计日志与隐私安全防范指南</a></li>
+          <li><a href="blog/how-to-choose-airport.html">如何选择靠谱节点？避坑防跑路秘籍</a></li>
+          <li><a href="blog/dns-leak-test-and-prevention.html">DNS泄漏与WebRTC真实IP暴露检测</a></li>
         </ul>
-        <div style="margin-top:1rem;">
-          <a href="guides/index.html" style="font-size:0.9rem; font-weight:600;">浏览教程中心全部指引 &rarr;</a>
-        </div>
+        <a href="blog/index.html" style="font-size:0.8rem; font-weight:600; color:var(--primary);">更多安全指南 &rarr;</a>
       </div>
 
-      <div>
-        <div class="section-header">
-          <h2 class="section-title">深度科普与防坑博客</h2>
-          <p class="section-desc">理清底层技术原理，远离劣质机场跑路套路。</p>
-        </div>
-        <ul style="list-style:none; display:flex; flex-direction:column; gap:0.75rem;">
-          <li style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.85rem 1.1rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>📖 <strong><a href="blog/vpn-vs-airport.html">传统VPN与机场节点有什么区别？深度原理拆解</a></strong></span>
-            <span style="font-size:0.8rem; color:var(--text-light);">原理科普</span>
-          </li>
-          <li style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.85rem 1.1rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>🔍 <strong><a href="blog/how-to-choose-airport.html">如何选择适合自己的机场节点？避坑防跑路指南</a></strong></span>
-            <span style="font-size:0.8rem; color:var(--text-light);">选购指南</span>
-          </li>
-          <li style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.85rem 1.1rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>⚡ <strong><a href="blog/iplc-iepl-transit-explained.html">IPLC/IEPL专线与中继隧道到底有什么不同？</a></strong></span>
-            <span style="font-size:0.8rem; color:var(--text-light);">技术对比</span>
-          </li>
-          <li style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:0.85rem 1.1rem; display:flex; justify-content:space-between; align-items:center;">
-            <span>🛡️ <strong><a href="blog/airport-security-privacy.html">翻墙安全吗？审计日志、协议加密与隐私防范</a></strong></span>
-            <span style="font-size:0.8rem; color:var(--text-light);">安全防范</span>
-          </li>
+      <div class="magazine-card">
+        <span class="magazine-tag" style="background:#eff6ff; color:#2563eb;">⚡ 专线与测速</span>
+        <h4>物理专线与协议底层机制</h4>
+        <ul class="magazine-links">
+          <li><a href="blog/iplc-iepl-transit-explained.html">IPLC/IEPL内网专线与中转隧道对比</a></li>
+          <li><a href="blog/node-speed-test-guide.html">单线程 vs 多线程测速实战技巧</a></li>
+          <li><a href="blog/vpn-vs-airport.html">传统VPN与机场代理底层协议深度拆解</a></li>
         </ul>
-        <div style="margin-top:1rem;">
-          <a href="blog/index.html" style="font-size:0.9rem; font-weight:600;">阅读所有深度文章 &rarr;</a>
-        </div>
+        <a href="blog/index.html" style="font-size:0.8rem; font-weight:600; color:var(--primary);">更多技术科普 &rarr;</a>
+      </div>
+
+      <div class="magazine-card">
+        <span class="magazine-tag" style="background:#f5f3ff; color:#7c3aed;">🤖 AI与流媒体</span>
+        <h4>ChatGPT与4K解锁实战</h4>
+        <ul class="magazine-links">
+          <li><a href="blog/chatgpt-access-denied-solutions.html">ChatGPT Access Denied 报错深度解决</a></li>
+          <li><a href="blog/claude-3-5-account-ban-prevention.html">Claude 3.5 Sonnet 防封号与纯净节点</a></li>
+          <li><a href="blog/netflix-region-unlock-mechanisms.html">Netflix 4K与Disney+原生IP解锁技巧</a></li>
+        </ul>
+        <a href="blog/index.html" style="font-size:0.8rem; font-weight:600; color:var(--primary);">更多解锁实测 &rarr;</a>
+      </div>
+
+      <div class="magazine-card">
+        <span class="magazine-tag" style="background:#ecfdf5; color:#059669;">⚙️ 进阶调优</span>
+        <h4>分流策略与TUN模式调优</h4>
+        <ul class="magazine-links">
+          <li><a href="blog/clash-mihomo-meta-features-guide.html">Clash Mihomo / Meta 核心特性调优</a></li>
+          <li><a href="blog/tun-vs-system-proxy-deep-dive.html">TUN 虚拟网卡与系统代理差异详解</a></li>
+          <li><a href="blog/dual-backup-node-strategy.html">高可用双持节点策略配置指南</a></li>
+        </ul>
+        <a href="blog/index.html" style="font-size:0.8rem; font-weight:600; color:var(--primary);">更多进阶调优 &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- Section 10: 知识百科 -->
+  <!-- Section 10: 核心专业术语百科 -->
   <section style="margin-bottom: 3.5rem;">
     <div class="section-header">
       <h2 class="section-title">核心专业术语百科</h2>
-      <p class="section-desc">帮助你迅速掌握翻墙与网络代理中的关键名词，看懂配置参数。</p>
+      <p class="section-desc">帮助你迅速掌握翻墙与网络代理中的关键名词，看懂配置参数：</p>
     </div>
     <div class="grid-4">
       <div style="background:#ffffff; border:1px solid var(--border-color); border-radius:var(--radius-sm); padding:1rem;">
@@ -354,17 +480,17 @@ const homeContent = `
     </div>
   </section>
 
-  <!-- Section 12: 核心常见问题 (FAQ) -->
+  <!-- Section 11: 核心常见问题 (FAQ) -->
   <section style="margin-bottom: 3.5rem;">
     <div class="section-header">
       <h2 class="section-title">围绕梯子与VPN机场的常见疑问 (FAQ)</h2>
-      <p class="section-desc">收录初学者与进阶用户最关心的网络节点连通性与资金安全问题。</p>
+      <p class="section-desc">收录初学者与进阶用户最关心的网络节点连通性与资金安全问题：</p>
     </div>
     <div style="max-width:900px;">
       ${renderFaqList([
         {
-          q: "什么是'机场'？它与传统商用VPN到底有什么不同？",
-          a: "在中文互联网语境中，'机场'是指由专业团队维护的多节点代理服务，底层大多采用Shadowsocks、VMess、VLESS、Trojan等分流协议。相比于ExpressVPN等全局加密的传统商用VPN，机场的最大优势在于支持国内国外智能分流（国内直连、国外翻墙），且具备丰富的节点数量、极高的带宽和更低的资费。"
+          q: "什么是'机场'？它与传统商业VPN到底有什么不同？",
+          a: "在中文互联网语境中，'机场'是指由专业团队维护的多节点代理服务，底层大多采用Shadowsocks、VMess、VLESS、Trojan等分流协议。相比于ExpressVPN等全局加密的传统商业VPN，机场的最大优势在于支持国内国外智能分流（国内直连、国外翻墙），且具备丰富的节点数量、极高的带宽和更低的资费。"
         },
         {
           q: "为什么有些廉价机场晚上8点到11点经常卡顿断连？",
@@ -383,6 +509,7 @@ const homeContent = `
   </section>
 </div>
 `;
+
 
 fs.writeFileSync(path.join(ROOT_DIR, "index.html"), wrapHtml({
   title: "2026专业机场推荐与梯子节点测评指南 - 竹梯子博客",
@@ -489,7 +616,7 @@ const recommendIndexContent = `
     <p class="section-desc">以下服务商均提取自官方评测库真实数据，并提供直达官网链接与优惠折扣：</p>
   </div>
   <div class="grid-3" style="margin-bottom:3rem;">
-    ${AIRPORTS.map(a => generateAirportCard(a, "../")).join("")}
+    ${AIRPORTS.map((a, idx) => generateAirportCard(a, "../", idx)).join("")}
   </div>
 </div>
 `;

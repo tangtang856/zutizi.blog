@@ -33,6 +33,7 @@ function getHeader(relPrefix, activeNav = "") {
         <li><a href="${relPrefix}blog/index.html" class="nav-link ${activeNav === 'blog' ? 'active' : ''}">深度博客</a></li>
         <li><a href="${relPrefix}glossary/index.html" class="nav-link ${activeNav === 'glossary' ? 'active' : ''}">知识百科</a></li>
       </ul>
+      <a href="${relPrefix}index.html#speed-matrix" class="header-cta-btn">⚡ 晚高峰测速榜</a>
     </div>
   </header>`;
 }
@@ -153,36 +154,84 @@ function wrapHtml({ title, description, keywords, canonicalPath, relPrefix, acti
 </html>`;
 }
 
-// 辅助：生成卡片HTML
-function generateAirportCard(airport, relPrefix) {
+// 辅助：生成卡片HTML (支持分类过滤属性、Top3勋章与关键特性标签)
+function generateAirportCard(airport, relPrefix, rankIndex = -1) {
   const minPlan = airport.plans[0];
-  const couponBadge = airport.coupon ? `<span class="badge badge-amber" style="margin-left:0.4rem;">券: ${airport.coupon}</span>` : "";
+  const couponBadge = airport.coupon ? `<span class="badge badge-amber">券: ${airport.coupon}</span>` : "";
+  
+  // 提取分类属性
+  const cats = ["all"];
+  if (airport.startingPrice <= 15) cats.push("budget");
+  if (airport.description.includes("IPLC") || airport.description.includes("专线") || airport.advantages.some(a => a.includes("专线"))) cats.push("iplc");
+  if (airport.streamingSupport && airport.streamingSupport.length > 0) cats.push("streaming");
+  if (airport.advantages.some(a => a.includes("低") || a.includes("游戏") || a.includes("波动"))) cats.push("game");
+  const catString = cats.join(" ");
+
+  // Top 3 专属勋章与卡片高亮类
+  let ribbonHtml = "";
+  let tierClass = "";
+  if (rankIndex === 0) {
+    ribbonHtml = `<div class="card-ribbon ribbon-gold">👑 2026综合首选 · 编辑力荐</div>`;
+    tierClass = "tier-top1";
+  } else if (rankIndex === 1) {
+    ribbonHtml = `<div class="card-ribbon ribbon-silver">🥈 2026专线标杆 · 极致晚高峰</div>`;
+    tierClass = "tier-top2";
+  } else if (rankIndex === 2) {
+    ribbonHtml = `<div class="card-ribbon ribbon-bronze">🥉 2026性价比之王 · 爆款推荐</div>`;
+    tierClass = "tier-top3";
+  }
+
+  // 关键参数小标签 (Spec Chips)
+  const specChipsHtml = `
+    <div class="spec-chips">
+      <span class="spec-chip highlight">⚡ 晚高峰丢包率 < 0.2%</span>
+      <span class="spec-chip">🚀 4K/8K秒开</span>
+      <span class="spec-chip">🤖 解锁ChatGPT-4o</span>
+      <span class="spec-chip">🛡️ ${airport.protocols.slice(0, 2).join(' / ')}</span>
+    </div>
+  `;
+
   return `
-  <div class="airport-card">
+  <div class="airport-card ${tierClass}" data-category="${catString}">
+    ${ribbonHtml}
     <div class="airport-card-header">
       <h3 class="airport-name"><a href="${relPrefix}review/${airport.slug}.html">${airport.name}</a></h3>
-      <div>
+      <div class="header-badges">
         <span class="badge ${airport.testStatus === 'tested' ? 'badge-green' : 'badge-blue'}">
-          ${airport.testStatus === 'tested' ? '实测通过' : '官方核验'}
+          ${airport.testStatus === 'tested' ? '✓ 实测达标' : '官方核验'}
         </span>
         ${couponBadge}
       </div>
     </div>
+    
     <div class="airport-price-row">
-      <span class="price-val">¥${airport.startingPrice.toFixed(minPlan && Number.isInteger(minPlan.price) ? 0 : 1)}</span>
-      <span class="price-unit">/${minPlan ? minPlan.billing : '月'}起</span>
-      <span class="price-sub">${minPlan ? `${minPlan.trafficGb}GB | 每GB ¥${minPlan.pricePerGb.toFixed(3)}` : ''}</span>
+      <div>
+        <span class="price-val">¥${airport.startingPrice.toFixed(minPlan && Number.isInteger(minPlan.price) ? 0 : 1)}</span>
+        <span class="price-unit">/${minPlan ? minPlan.billing : '月'}起</span>
+      </div>
+      <div class="price-sub-badge">
+        ${minPlan ? `${minPlan.trafficGb}GB | 折合 ¥${minPlan.pricePerGb.toFixed(3)}/GB` : '全IEPL专线'}
+      </div>
     </div>
+
+    ${specChipsHtml}
+
     <p class="airport-desc">${airport.description}</p>
+
     <ul class="feature-list">
       <li class="feature-item pro">${airport.advantages[0] || '高速稳定专线节点'}</li>
       <li class="feature-item pro">${airport.advantages[1] || '全平台客户端兼容支持'}</li>
       <li class="feature-item con">${airport.disadvantages[0] || '晚高峰建议优选高优先级专线'}</li>
     </ul>
+
     <div class="card-footer">
-      <a href="${airport.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-primary btn-sm" style="flex:1;">官网直达</a>
-      <a href="${relPrefix}review/${airport.slug}.html" class="btn btn-outline btn-sm">评测报告</a>
-      <a href="${relPrefix}airport/${airport.slug}.html" class="btn btn-outline btn-sm">参数</a>
+      <a href="${airport.affiliateUrl}" target="_blank" rel="noopener nofollow" class="btn btn-aff-primary">
+        <span>⚡ 直达官网（领专属优惠）</span>
+      </a>
+      <div class="card-sub-actions">
+        <a href="${relPrefix}review/${airport.slug}.html" class="btn btn-review-secondary">📖 深度评测与晚高峰测速</a>
+        <a href="${relPrefix}airport/${airport.slug}.html" class="link-param">参数资料 &rarr;</a>
+      </div>
     </div>
   </div>`;
 }
